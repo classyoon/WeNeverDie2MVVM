@@ -8,13 +8,59 @@
 
 /* Begin PBXBuildFile section */
 		CAC47AF82C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47AF72C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift */; };
-		CAC47AFA2C8CD76E008AF768 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47AF92C8CD76E008AF768 /* ContentView.swift */; };
-		CAC47AFC2C8CD76E008AF768 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47AFB2C8CD76E008AF768 /* Item.swift */; };
 		CAC47AFE2C8CD76F008AF768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC47AFD2C8CD76F008AF768 /* Assets.xcassets */; };
 		CAC47B012C8CD76F008AF768 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B002C8CD76F008AF768 /* Preview Assets.xcassets */; };
 		CAC47B0B2C8CD76F008AF768 /* WeNeverDie2MVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B0A2C8CD76F008AF768 /* WeNeverDie2MVVMTests.swift */; };
 		CAC47B152C8CD76F008AF768 /* WeNeverDie2MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B142C8CD76F008AF768 /* WeNeverDie2MVVMUITests.swift */; };
 		CAC47B172C8CD76F008AF768 /* WeNeverDie2MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B162C8CD76F008AF768 /* WeNeverDie2MVVMUITestsLaunchTests.swift */; };
+		CAC47B242C8CD7B8008AF768 /* ViewDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B232C8CD7B8008AF768 /* ViewDirector.swift */; };
+		CAC47B262C8CD825008AF768 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B252C8CD825008AF768 /* GameView.swift */; };
+		CAC47B302C8CD8F1008AF768 /* BuildTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B272C8CD8F1008AF768 /* BuildTutorial.swift */; };
+		CAC47B312C8CD8F1008AF768 /* CampPhaseTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B282C8CD8F1008AF768 /* CampPhaseTutorial.swift */; };
+		CAC47B322C8CD8F1008AF768 /* OutsidePhaseTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B292C8CD8F1008AF768 /* OutsidePhaseTutorial.swift */; };
+		CAC47B332C8CD8F1008AF768 /* firstTutorialExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B2B2C8CD8F1008AF768 /* firstTutorialExit.swift */; };
+		CAC47B342C8CD8F1008AF768 /* SkipTutorialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B2C2C8CD8F1008AF768 /* SkipTutorialButton.swift */; };
+		CAC47B352C8CD8F1008AF768 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B2E2C8CD8F1008AF768 /* TutorialView.swift */; };
+		CAC47B742C8CD9B4008AF768 /* Kurt - Cheel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B362C8CD9B4008AF768 /* Kurt - Cheel.mp3 */; };
+		CAC47B752C8CD9B4008AF768 /* Rollin Through Osaka - MK2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B372C8CD9B4008AF768 /* Rollin Through Osaka - MK2.mp3 */; };
+		CAC47B762C8CD9B4008AF768 /* Shadows - Anno Domini Beats.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B382C8CD9B4008AF768 /* Shadows - Anno Domini Beats.mp3 */; };
+		CAC47B772C8CD9B4008AF768 /* The Dismal Hand - The Whole Other.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B392C8CD9B4008AF768 /* The Dismal Hand - The Whole Other.mp3 */; };
+		CAC47B782C8CD9B4008AF768 /* CloseButtonS.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B3B2C8CD9B4008AF768 /* CloseButtonS.mp3 */; };
+		CAC47B792C8CD9B4008AF768 /* CloseTheFallen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B3C2C8CD9B4008AF768 /* CloseTheFallen.mp3 */; };
+		CAC47B7A2C8CD9B4008AF768 /* CloseTutorial.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B3D2C8CD9B4008AF768 /* CloseTutorial.mp3 */; };
+		CAC47B7B2C8CD9B4008AF768 /* FRecruit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B3E2C8CD9B4008AF768 /* FRecruit.mp3 */; };
+		CAC47B7C2C8CD9B4008AF768 /* MRecruit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B3F2C8CD9B4008AF768 /* MRecruit.mp3 */; };
+		CAC47B7D2C8CD9B4008AF768 /* NextDayButtonS.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B402C8CD9B4008AF768 /* NextDayButtonS.mp3 */; };
+		CAC47B7E2C8CD9B4008AF768 /* NextTurnButtonS.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B412C8CD9B4008AF768 /* NextTurnButtonS.mp3 */; };
+		CAC47B7F2C8CD9B4008AF768 /* NoStaminaS.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B422C8CD9B4008AF768 /* NoStaminaS.mp3 */; };
+		CAC47B802C8CD9B4008AF768 /* OpenButtonS.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B432C8CD9B4008AF768 /* OpenButtonS.mp3 */; };
+		CAC47B812C8CD9B4008AF768 /* OpenTheFallen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B442C8CD9B4008AF768 /* OpenTheFallen.mp3 */; };
+		CAC47B822C8CD9B4008AF768 /* OpenTutorial.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B452C8CD9B4008AF768 /* OpenTutorial.mp3 */; };
+		CAC47B832C8CD9B4008AF768 /* EmptySearch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B472C8CD9B4008AF768 /* EmptySearch.mp3 */; };
+		CAC47B842C8CD9B4008AF768 /* fixVolumeGrab.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B482C8CD9B4008AF768 /* fixVolumeGrab.mp3 */; };
+		CAC47B852C8CD9B4008AF768 /* Van DoorSFX.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B492C8CD9B4008AF768 /* Van DoorSFX.mp3 */; };
+		CAC47B862C8CD9B4008AF768 /* volFootsteps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B4A2C8CD9B4008AF768 /* volFootsteps.mp3 */; };
+		CAC47B882C8CD9B4008AF768 /* Alert Noise 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B4E2C8CD9B4008AF768 /* Alert Noise 3.mp3 */; };
+		CAC47B892C8CD9B4008AF768 /* BuildWalk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B4F2C8CD9B4008AF768 /* BuildWalk.mp3 */; };
+		CAC47B8A2C8CD9B4008AF768 /* CloseButton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B502C8CD9B4008AF768 /* CloseButton.mp3 */; };
+		CAC47B8B2C8CD9B4008AF768 /* ForestWalkVol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B512C8CD9B4008AF768 /* ForestWalkVol.mp3 */; };
+		CAC47B8C2C8CD9B4008AF768 /* Improved Thump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B522C8CD9B4008AF768 /* Improved Thump.mp3 */; };
+		CAC47B8D2C8CD9B4008AF768 /* Long GrowlVol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B532C8CD9B4008AF768 /* Long GrowlVol.mp3 */; };
+		CAC47B8E2C8CD9B4008AF768 /* Monster NoisesVol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B542C8CD9B4008AF768 /* Monster NoisesVol.mp3 */; };
+		CAC47B8F2C8CD9B4008AF768 /* NoStamina.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B552C8CD9B4008AF768 /* NoStamina.mp3 */; };
+		CAC47B902C8CD9B4008AF768 /* OpenButton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B562C8CD9B4008AF768 /* OpenButton.mp3 */; };
+		CAC47B912C8CD9B4008AF768 /* PassDayButton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B572C8CD9B4008AF768 /* PassDayButton.mp3 */; };
+		CAC47B922C8CD9B4008AF768 /* UtilitiesButton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B582C8CD9B4008AF768 /* UtilitiesButton.mp3 */; };
+		CAC47B932C8CD9B4008AF768 /* volCampDoor.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B592C8CD9B4008AF768 /* volCampDoor.mp3 */; };
+		CAC47B942C8CD9B4008AF768 /* volCarStart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B5A2C8CD9B4008AF768 /* volCarStart.mp3 */; };
+		CAC47B952C8CD9B4008AF768 /* volHammerTaps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B5B2C8CD9B4008AF768 /* volHammerTaps.mp3 */; };
+		CAC47B962C8CD9B4008AF768 /* volStab.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B5C2C8CD9B4008AF768 /* volStab.mp3 */; };
+		CAC47B972C8CD9B4008AF768 /* volWoodSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B5D2C8CD9B4008AF768 /* volWoodSound.mp3 */; };
+		CAC47B982C8CD9B4008AF768 /* WaterWalk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B5E2C8CD9B4008AF768 /* WaterWalk.mp3 */; };
+		CAC47B992C8CD9B4008AF768 /* Wet EatingVol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B5F2C8CD9B4008AF768 /* Wet EatingVol.mp3 */; };
+		CAC47BA72C8CD9B4008AF768 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B722C8CD9B4008AF768 /* AudioManager.swift */; };
+		CAC47C682C8CDBDB008AF768 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47C672C8CDBDB008AF768 /* Tile.swift */; };
+		CAC47C6A2C8CDBF9008AF768 /* Coord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47C692C8CDBF9008AF768 /* Coord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +83,6 @@
 /* Begin PBXFileReference section */
 		CAC47AF42C8CD76E008AF768 /* WeNeverDie2MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeNeverDie2MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC47AF72C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeNeverDie2MVVMApp.swift; sourceTree = "<group>"; };
-		CAC47AF92C8CD76E008AF768 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		CAC47AFB2C8CD76E008AF768 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CAC47AFD2C8CD76F008AF768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAC47B002C8CD76F008AF768 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CAC47B062C8CD76F008AF768 /* WeNeverDie2MVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeNeverDie2MVVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +90,54 @@
 		CAC47B102C8CD76F008AF768 /* WeNeverDie2MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeNeverDie2MVVMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC47B142C8CD76F008AF768 /* WeNeverDie2MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeNeverDie2MVVMUITests.swift; sourceTree = "<group>"; };
 		CAC47B162C8CD76F008AF768 /* WeNeverDie2MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeNeverDie2MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CAC47B232C8CD7B8008AF768 /* ViewDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDirector.swift; sourceTree = "<group>"; };
+		CAC47B252C8CD825008AF768 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		CAC47B272C8CD8F1008AF768 /* BuildTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildTutorial.swift; sourceTree = "<group>"; };
+		CAC47B282C8CD8F1008AF768 /* CampPhaseTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampPhaseTutorial.swift; sourceTree = "<group>"; };
+		CAC47B292C8CD8F1008AF768 /* OutsidePhaseTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutsidePhaseTutorial.swift; sourceTree = "<group>"; };
+		CAC47B2B2C8CD8F1008AF768 /* firstTutorialExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstTutorialExit.swift; sourceTree = "<group>"; };
+		CAC47B2C2C8CD8F1008AF768 /* SkipTutorialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkipTutorialButton.swift; sourceTree = "<group>"; };
+		CAC47B2E2C8CD8F1008AF768 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		CAC47B362C8CD9B4008AF768 /* Kurt - Cheel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Kurt - Cheel.mp3"; sourceTree = "<group>"; };
+		CAC47B372C8CD9B4008AF768 /* Rollin Through Osaka - MK2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rollin Through Osaka - MK2.mp3"; sourceTree = "<group>"; };
+		CAC47B382C8CD9B4008AF768 /* Shadows - Anno Domini Beats.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Shadows - Anno Domini Beats.mp3"; sourceTree = "<group>"; };
+		CAC47B392C8CD9B4008AF768 /* The Dismal Hand - The Whole Other.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Dismal Hand - The Whole Other.mp3"; sourceTree = "<group>"; };
+		CAC47B3B2C8CD9B4008AF768 /* CloseButtonS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CloseButtonS.mp3; sourceTree = "<group>"; };
+		CAC47B3C2C8CD9B4008AF768 /* CloseTheFallen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CloseTheFallen.mp3; sourceTree = "<group>"; };
+		CAC47B3D2C8CD9B4008AF768 /* CloseTutorial.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CloseTutorial.mp3; sourceTree = "<group>"; };
+		CAC47B3E2C8CD9B4008AF768 /* FRecruit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = FRecruit.mp3; sourceTree = "<group>"; };
+		CAC47B3F2C8CD9B4008AF768 /* MRecruit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MRecruit.mp3; sourceTree = "<group>"; };
+		CAC47B402C8CD9B4008AF768 /* NextDayButtonS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NextDayButtonS.mp3; sourceTree = "<group>"; };
+		CAC47B412C8CD9B4008AF768 /* NextTurnButtonS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NextTurnButtonS.mp3; sourceTree = "<group>"; };
+		CAC47B422C8CD9B4008AF768 /* NoStaminaS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NoStaminaS.mp3; sourceTree = "<group>"; };
+		CAC47B432C8CD9B4008AF768 /* OpenButtonS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = OpenButtonS.mp3; sourceTree = "<group>"; };
+		CAC47B442C8CD9B4008AF768 /* OpenTheFallen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = OpenTheFallen.mp3; sourceTree = "<group>"; };
+		CAC47B452C8CD9B4008AF768 /* OpenTutorial.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = OpenTutorial.mp3; sourceTree = "<group>"; };
+		CAC47B472C8CD9B4008AF768 /* EmptySearch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = EmptySearch.mp3; sourceTree = "<group>"; };
+		CAC47B482C8CD9B4008AF768 /* fixVolumeGrab.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fixVolumeGrab.mp3; sourceTree = "<group>"; };
+		CAC47B492C8CD9B4008AF768 /* Van DoorSFX.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Van DoorSFX.mp3"; sourceTree = "<group>"; };
+		CAC47B4A2C8CD9B4008AF768 /* volFootsteps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = volFootsteps.mp3; sourceTree = "<group>"; };
+		CAC47B4E2C8CD9B4008AF768 /* Alert Noise 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Alert Noise 3.mp3"; sourceTree = "<group>"; };
+		CAC47B4F2C8CD9B4008AF768 /* BuildWalk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BuildWalk.mp3; sourceTree = "<group>"; };
+		CAC47B502C8CD9B4008AF768 /* CloseButton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CloseButton.mp3; sourceTree = "<group>"; };
+		CAC47B512C8CD9B4008AF768 /* ForestWalkVol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ForestWalkVol.mp3; sourceTree = "<group>"; };
+		CAC47B522C8CD9B4008AF768 /* Improved Thump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Improved Thump.mp3"; sourceTree = "<group>"; };
+		CAC47B532C8CD9B4008AF768 /* Long GrowlVol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Long GrowlVol.mp3"; sourceTree = "<group>"; };
+		CAC47B542C8CD9B4008AF768 /* Monster NoisesVol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Monster NoisesVol.mp3"; sourceTree = "<group>"; };
+		CAC47B552C8CD9B4008AF768 /* NoStamina.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NoStamina.mp3; sourceTree = "<group>"; };
+		CAC47B562C8CD9B4008AF768 /* OpenButton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = OpenButton.mp3; sourceTree = "<group>"; };
+		CAC47B572C8CD9B4008AF768 /* PassDayButton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PassDayButton.mp3; sourceTree = "<group>"; };
+		CAC47B582C8CD9B4008AF768 /* UtilitiesButton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = UtilitiesButton.mp3; sourceTree = "<group>"; };
+		CAC47B592C8CD9B4008AF768 /* volCampDoor.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = volCampDoor.mp3; sourceTree = "<group>"; };
+		CAC47B5A2C8CD9B4008AF768 /* volCarStart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = volCarStart.mp3; sourceTree = "<group>"; };
+		CAC47B5B2C8CD9B4008AF768 /* volHammerTaps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = volHammerTaps.mp3; sourceTree = "<group>"; };
+		CAC47B5C2C8CD9B4008AF768 /* volStab.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = volStab.mp3; sourceTree = "<group>"; };
+		CAC47B5D2C8CD9B4008AF768 /* volWoodSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = volWoodSound.mp3; sourceTree = "<group>"; };
+		CAC47B5E2C8CD9B4008AF768 /* WaterWalk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WaterWalk.mp3; sourceTree = "<group>"; };
+		CAC47B5F2C8CD9B4008AF768 /* Wet EatingVol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Wet EatingVol.mp3"; sourceTree = "<group>"; };
+		CAC47B722C8CD9B4008AF768 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		CAC47C672C8CDBDB008AF768 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		CAC47C692C8CDBF9008AF768 /* Coord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +188,13 @@
 		CAC47AF62C8CD76E008AF768 /* WeNeverDie2MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				CAC47B732C8CD9B4008AF768 /* Sounds */,
 				CAC47AF72C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift */,
-				CAC47AF92C8CD76E008AF768 /* ContentView.swift */,
-				CAC47AFB2C8CD76E008AF768 /* Item.swift */,
+				CAC47B252C8CD825008AF768 /* GameView.swift */,
+				CAC47B232C8CD7B8008AF768 /* ViewDirector.swift */,
+				CAC47C692C8CDBF9008AF768 /* Coord.swift */,
+				CAC47C672C8CDBDB008AF768 /* Tile.swift */,
+				CAC47B2F2C8CD8F1008AF768 /* Tutorial */,
 				CAC47AFD2C8CD76F008AF768 /* Assets.xcassets */,
 				CAC47AFF2C8CD76F008AF768 /* Preview Content */,
 			);
@@ -128,6 +224,112 @@
 				CAC47B162C8CD76F008AF768 /* WeNeverDie2MVVMUITestsLaunchTests.swift */,
 			);
 			path = WeNeverDie2MVVMUITests;
+			sourceTree = "<group>";
+		};
+		CAC47B2A2C8CD8F1008AF768 /* Tutorials */ = {
+			isa = PBXGroup;
+			children = (
+				CAC47B272C8CD8F1008AF768 /* BuildTutorial.swift */,
+				CAC47B282C8CD8F1008AF768 /* CampPhaseTutorial.swift */,
+				CAC47B292C8CD8F1008AF768 /* OutsidePhaseTutorial.swift */,
+			);
+			path = Tutorials;
+			sourceTree = "<group>";
+		};
+		CAC47B2D2C8CD8F1008AF768 /* View Elements */ = {
+			isa = PBXGroup;
+			children = (
+				CAC47B2B2C8CD8F1008AF768 /* firstTutorialExit.swift */,
+				CAC47B2C2C8CD8F1008AF768 /* SkipTutorialButton.swift */,
+			);
+			path = "View Elements";
+			sourceTree = "<group>";
+		};
+		CAC47B2F2C8CD8F1008AF768 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				CAC47B2A2C8CD8F1008AF768 /* Tutorials */,
+				CAC47B2D2C8CD8F1008AF768 /* View Elements */,
+				CAC47B2E2C8CD8F1008AF768 /* TutorialView.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		CAC47B3A2C8CD9B4008AF768 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				CAC47B362C8CD9B4008AF768 /* Kurt - Cheel.mp3 */,
+				CAC47B372C8CD9B4008AF768 /* Rollin Through Osaka - MK2.mp3 */,
+				CAC47B382C8CD9B4008AF768 /* Shadows - Anno Domini Beats.mp3 */,
+				CAC47B392C8CD9B4008AF768 /* The Dismal Hand - The Whole Other.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		CAC47B462C8CD9B4008AF768 /* NewSounds */ = {
+			isa = PBXGroup;
+			children = (
+				CAC47B3B2C8CD9B4008AF768 /* CloseButtonS.mp3 */,
+				CAC47B3C2C8CD9B4008AF768 /* CloseTheFallen.mp3 */,
+				CAC47B3D2C8CD9B4008AF768 /* CloseTutorial.mp3 */,
+				CAC47B3E2C8CD9B4008AF768 /* FRecruit.mp3 */,
+				CAC47B3F2C8CD9B4008AF768 /* MRecruit.mp3 */,
+				CAC47B402C8CD9B4008AF768 /* NextDayButtonS.mp3 */,
+				CAC47B412C8CD9B4008AF768 /* NextTurnButtonS.mp3 */,
+				CAC47B422C8CD9B4008AF768 /* NoStaminaS.mp3 */,
+				CAC47B432C8CD9B4008AF768 /* OpenButtonS.mp3 */,
+				CAC47B442C8CD9B4008AF768 /* OpenTheFallen.mp3 */,
+				CAC47B452C8CD9B4008AF768 /* OpenTutorial.mp3 */,
+			);
+			path = NewSounds;
+			sourceTree = "<group>";
+		};
+		CAC47B4B2C8CD9B4008AF768 /* PlayerSFX */ = {
+			isa = PBXGroup;
+			children = (
+				CAC47B472C8CD9B4008AF768 /* EmptySearch.mp3 */,
+				CAC47B482C8CD9B4008AF768 /* fixVolumeGrab.mp3 */,
+				CAC47B492C8CD9B4008AF768 /* Van DoorSFX.mp3 */,
+				CAC47B4A2C8CD9B4008AF768 /* volFootsteps.mp3 */,
+			);
+			path = PlayerSFX;
+			sourceTree = "<group>";
+		};
+		CAC47B602C8CD9B4008AF768 /* Sound Effects */ = {
+			isa = PBXGroup;
+			children = (
+				CAC47B462C8CD9B4008AF768 /* NewSounds */,
+				CAC47B4B2C8CD9B4008AF768 /* PlayerSFX */,
+				CAC47B4E2C8CD9B4008AF768 /* Alert Noise 3.mp3 */,
+				CAC47B4F2C8CD9B4008AF768 /* BuildWalk.mp3 */,
+				CAC47B502C8CD9B4008AF768 /* CloseButton.mp3 */,
+				CAC47B512C8CD9B4008AF768 /* ForestWalkVol.mp3 */,
+				CAC47B522C8CD9B4008AF768 /* Improved Thump.mp3 */,
+				CAC47B532C8CD9B4008AF768 /* Long GrowlVol.mp3 */,
+				CAC47B542C8CD9B4008AF768 /* Monster NoisesVol.mp3 */,
+				CAC47B552C8CD9B4008AF768 /* NoStamina.mp3 */,
+				CAC47B562C8CD9B4008AF768 /* OpenButton.mp3 */,
+				CAC47B572C8CD9B4008AF768 /* PassDayButton.mp3 */,
+				CAC47B582C8CD9B4008AF768 /* UtilitiesButton.mp3 */,
+				CAC47B592C8CD9B4008AF768 /* volCampDoor.mp3 */,
+				CAC47B5A2C8CD9B4008AF768 /* volCarStart.mp3 */,
+				CAC47B5B2C8CD9B4008AF768 /* volHammerTaps.mp3 */,
+				CAC47B5C2C8CD9B4008AF768 /* volStab.mp3 */,
+				CAC47B5D2C8CD9B4008AF768 /* volWoodSound.mp3 */,
+				CAC47B5E2C8CD9B4008AF768 /* WaterWalk.mp3 */,
+				CAC47B5F2C8CD9B4008AF768 /* Wet EatingVol.mp3 */,
+			);
+			path = "Sound Effects";
+			sourceTree = "<group>";
+		};
+		CAC47B732C8CD9B4008AF768 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				CAC47B3A2C8CD9B4008AF768 /* Music */,
+				CAC47B602C8CD9B4008AF768 /* Sound Effects */,
+				CAC47B722C8CD9B4008AF768 /* AudioManager.swift */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +436,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAC47B912C8CD9B4008AF768 /* PassDayButton.mp3 in Resources */,
+				CAC47B922C8CD9B4008AF768 /* UtilitiesButton.mp3 in Resources */,
+				CAC47B7D2C8CD9B4008AF768 /* NextDayButtonS.mp3 in Resources */,
+				CAC47B972C8CD9B4008AF768 /* volWoodSound.mp3 in Resources */,
+				CAC47B7C2C8CD9B4008AF768 /* MRecruit.mp3 in Resources */,
+				CAC47B832C8CD9B4008AF768 /* EmptySearch.mp3 in Resources */,
+				CAC47B742C8CD9B4008AF768 /* Kurt - Cheel.mp3 in Resources */,
+				CAC47B962C8CD9B4008AF768 /* volStab.mp3 in Resources */,
+				CAC47B992C8CD9B4008AF768 /* Wet EatingVol.mp3 in Resources */,
+				CAC47B792C8CD9B4008AF768 /* CloseTheFallen.mp3 in Resources */,
+				CAC47B812C8CD9B4008AF768 /* OpenTheFallen.mp3 in Resources */,
+				CAC47B762C8CD9B4008AF768 /* Shadows - Anno Domini Beats.mp3 in Resources */,
+				CAC47B772C8CD9B4008AF768 /* The Dismal Hand - The Whole Other.mp3 in Resources */,
+				CAC47B8B2C8CD9B4008AF768 /* ForestWalkVol.mp3 in Resources */,
+				CAC47B7A2C8CD9B4008AF768 /* CloseTutorial.mp3 in Resources */,
 				CAC47B012C8CD76F008AF768 /* Preview Assets.xcassets in Resources */,
+				CAC47B822C8CD9B4008AF768 /* OpenTutorial.mp3 in Resources */,
+				CAC47B7E2C8CD9B4008AF768 /* NextTurnButtonS.mp3 in Resources */,
 				CAC47AFE2C8CD76F008AF768 /* Assets.xcassets in Resources */,
+				CAC47B8F2C8CD9B4008AF768 /* NoStamina.mp3 in Resources */,
+				CAC47B802C8CD9B4008AF768 /* OpenButtonS.mp3 in Resources */,
+				CAC47B782C8CD9B4008AF768 /* CloseButtonS.mp3 in Resources */,
+				CAC47B7B2C8CD9B4008AF768 /* FRecruit.mp3 in Resources */,
+				CAC47B862C8CD9B4008AF768 /* volFootsteps.mp3 in Resources */,
+				CAC47B892C8CD9B4008AF768 /* BuildWalk.mp3 in Resources */,
+				CAC47B8A2C8CD9B4008AF768 /* CloseButton.mp3 in Resources */,
+				CAC47B752C8CD9B4008AF768 /* Rollin Through Osaka - MK2.mp3 in Resources */,
+				CAC47B932C8CD9B4008AF768 /* volCampDoor.mp3 in Resources */,
+				CAC47B952C8CD9B4008AF768 /* volHammerTaps.mp3 in Resources */,
+				CAC47B982C8CD9B4008AF768 /* WaterWalk.mp3 in Resources */,
+				CAC47B8C2C8CD9B4008AF768 /* Improved Thump.mp3 in Resources */,
+				CAC47B8D2C8CD9B4008AF768 /* Long GrowlVol.mp3 in Resources */,
+				CAC47B8E2C8CD9B4008AF768 /* Monster NoisesVol.mp3 in Resources */,
+				CAC47B842C8CD9B4008AF768 /* fixVolumeGrab.mp3 in Resources */,
+				CAC47B902C8CD9B4008AF768 /* OpenButton.mp3 in Resources */,
+				CAC47B942C8CD9B4008AF768 /* volCarStart.mp3 in Resources */,
+				CAC47B7F2C8CD9B4008AF768 /* NoStaminaS.mp3 in Resources */,
+				CAC47B882C8CD9B4008AF768 /* Alert Noise 3.mp3 in Resources */,
+				CAC47B852C8CD9B4008AF768 /* Van DoorSFX.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,8 +499,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC47AFA2C8CD76E008AF768 /* ContentView.swift in Sources */,
-				CAC47AFC2C8CD76E008AF768 /* Item.swift in Sources */,
+				CAC47B242C8CD7B8008AF768 /* ViewDirector.swift in Sources */,
+				CAC47B262C8CD825008AF768 /* GameView.swift in Sources */,
+				CAC47B352C8CD8F1008AF768 /* TutorialView.swift in Sources */,
+				CAC47B342C8CD8F1008AF768 /* SkipTutorialButton.swift in Sources */,
+				CAC47B312C8CD8F1008AF768 /* CampPhaseTutorial.swift in Sources */,
+				CAC47B322C8CD8F1008AF768 /* OutsidePhaseTutorial.swift in Sources */,
+				CAC47B302C8CD8F1008AF768 /* BuildTutorial.swift in Sources */,
+				CAC47B332C8CD8F1008AF768 /* firstTutorialExit.swift in Sources */,
+				CAC47BA72C8CD9B4008AF768 /* AudioManager.swift in Sources */,
+				CAC47C6A2C8CDBF9008AF768 /* Coord.swift in Sources */,
+				CAC47C682C8CDBDB008AF768 /* Tile.swift in Sources */,
 				CAC47AF82C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
