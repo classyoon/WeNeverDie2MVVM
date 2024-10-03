@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GameView: View {
-    @StateObject var vm : ViewDirectorVM = ViewDirectorVM(model: VisualDirector())
+    @ObservedObject var vm : ViewDirectorVM
     var body: some View {
         VStack {
             switch vm.showScreen {
@@ -27,15 +27,21 @@ struct GameView: View {
     }
 }
 struct OutsideView: View {
-    var vm : ViewDirectorVM
+    @ObservedObject var vm : ViewDirectorVM
     var body: some View {
         Text("Out")
+        Button("Move"){
+            vm.leaveBoard()
+        }
     }
 }
 struct CampView: View {
-    var vm : ViewDirectorVM
+    @ObservedObject var vm : ViewDirectorVM
     var body: some View {
         Text("In")
+        Button("Move"){
+            vm.swapToBoard()
+        }
     }
 }
 

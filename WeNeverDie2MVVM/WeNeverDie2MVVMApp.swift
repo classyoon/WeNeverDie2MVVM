@@ -10,9 +10,14 @@ import SwiftData
 
 @main
 struct WeNeverDie2MVVMApp: App {
+    @StateObject var game : GameModel = GameModel()
     var body: some Scene {
         WindowGroup{
-            GameView(vm : ViewDirectorVM())
+            GameView(vm : ViewDirectorVM(model: game.viewDirector))
         }
     }
+}
+
+class GameModel : ObservableObject {
+    @Published var viewDirector = VisualDirector()
 }

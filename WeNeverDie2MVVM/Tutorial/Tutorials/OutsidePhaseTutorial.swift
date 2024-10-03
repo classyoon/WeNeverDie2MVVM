@@ -127,7 +127,7 @@ Once you are satisfied with your haul or if things get too dicey, get your survi
             Text("Tiles and How to Return Home").font(.title)
             Image("grass").resizable().frame(width: 300, height: 300).padding()
             Text(grassfield)
-            TileView(image: "forest", tileLocation: Coord(), optionalColor: .brown).frame(width: 300, height: 300).padding()
+          //  TileView(image: "forest", tileLocation: Coord(), optionalColor: .brown).frame(width: 300, height: 300).padding()
             Text(forest)
             Image("building").resizable().frame(width: 300, height: 300).padding()
             Text(buildingText)
@@ -139,16 +139,16 @@ Once you are satisfied with your haul or if things get too dicey, get your survi
     }
     func newTiles()-> some View {
         VStack{
-            TileView(image: "forest", tileLocation: Coord(), optionalColor: .blue).frame(width: 300, height: 300).padding()
+         //   TileView(image: "forest", tileLocation: Coord(), optionalColor: .blue).frame(width: 300, height: 300).padding()
             Text(playerStart)
-            TileView(image: "forest", tileLocation: Coord(), optionalColor: .black).frame(width: 300, height: 300).padding()
+         //   TileView(image: "forest", tileLocation: Coord(), optionalColor: .black).frame(width: 300, height: 300).padding()
             Text(zombieSpawner)
             
         }
     }
     func escapeTile()-> some View {
         VStack{
-            TileView(image: "grass", tileLocation: Coord(), image2: "escape").frame(width: 300, height: 300).padding()
+//            TileView(image: "grass", tileLocation: Coord(), image2: "escape").frame(width: 300, height: 300).padding()
             Text(escape)
         }
     }

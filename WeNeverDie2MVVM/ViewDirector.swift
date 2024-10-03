@@ -42,6 +42,7 @@ class ViewDirectorVM : ObservableObject {
         self.model = model
         self.showScreen = showScreen
     }
+    
     init(showScreen : MandatoryScreenShow){
         self.model = VisualDirector()
         self.showScreen = showScreen
