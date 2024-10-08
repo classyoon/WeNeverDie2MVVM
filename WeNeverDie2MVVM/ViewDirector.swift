@@ -8,85 +8,94 @@
 import Foundation
 class ViewDirectorVM : ObservableObject {
     var model : VisualDirector
-    @Published var showScreen : MandatoryScreenShow
-    private func setShowScreen(){
-        showScreen = model.findPriorityView()
-    }
+    @Published var showScreen : ShowScreen
     func skipTutorial(){
-        model.skipTutorial(skipped: showScreen)
-        setShowScreen()
+        model.skipTutorial()
+        showScreen = model.setShowScreen()
     }
     func showBoardTutorial()-> Bool{
         return model.isInMission
     }
     func shouldShowSkip()->Bool {
-        if showScreen == .campTutorial && !model.seenCampTutorial {
-            return true
-        }
-        if showScreen == .outsideTutorial && !model.seenOutTutorial {
-            return true
-        }
-        return false
+        return model.shouldShowSkip()
+    }
+    func returnView(){
+        showScreen = model.setShowScreen()
+    }
+    func enterTutorial(){
+        showScreen = .tutorial
     }
     func swapToBoard(){
         model.setToBoard()
-        setShowScreen()
+        showScreen = model.setShowScreen()
     }
     func leaveBoard(){
         model.exitBoard()
-        setShowScreen()
+        showScreen = model.setShowScreen()
     }
-    
     
     init(model: VisualDirector) {
         self.model = model
-        self.showScreen = model.findPriorityView()
+        self.showScreen = model.setShowScreen()
     }
     
-    init(showScreen : MandatoryScreenShow){
+    init(showScreen : ShowScreen){
         self.model = VisualDirector()
         self.showScreen = showScreen
     }
     init(){
         self.model = VisualDirector()
-        self.showScreen = model.findPriorityView()
+        self.showScreen = model.setShowScreen()
     }
-    
 }
-enum MandatoryScreenShow {
+
+enum ScreenId {
     case outsideTutorial, campTutorial, board, camp
+}
+enum ShowScreen {
+    case tutorial, board, camp
 }
 
 class VisualDirector {
     var isInMission = false
     var seenCampTutorial = false
     var seenOutTutorial = false
-    func findPriorityView()->MandatoryScreenShow{
-        var temp = MandatoryScreenShow.camp
-        print("Find priority \(seenOutTutorial)")
-        print("seenOutside \(seenOutTutorial)")
-        print("seenOutside \(isInMission)")
+    var currentScreen : ScreenId = .campTutorial
+    private func findPriorityView(){
         if !seenOutTutorial && isInMission {
-            temp = .outsideTutorial
-            print("1")
+            currentScreen = .outsideTutorial
         }else if !seenCampTutorial && !isInMission {
-            temp = .campTutorial
-            print("2")
+            currentScreen = .campTutorial
         }
         else if isInMission {
-            temp = .board
-            print("3")
+            currentScreen = .board
         }
         else {
-            temp = .camp
-            print("4")
+            currentScreen = .camp
         }
-        return temp
+    }
+    func setShowScreen()->ShowScreen{
+        findPriorityView()
+        if currentScreen == .campTutorial || currentScreen == .outsideTutorial{
+            return .tutorial
+        }else if currentScreen == .board {
+            return .board
+        }else{
+            return .camp
+        }
     }
     
-    
-    func skipTutorial(skipped : MandatoryScreenShow){
-        if skipped == .campTutorial {
+    func shouldShowSkip()->Bool {
+        if currentScreen == .campTutorial && !seenCampTutorial {
+            return true
+        }
+        if currentScreen == .outsideTutorial && !seenOutTutorial {
+            return true
+        }
+        return false
+    }
+    func skipTutorial(){
+        if  currentScreen == .campTutorial {
             seenCampTutorial = true
         }else {
             seenOutTutorial = true
@@ -94,8 +103,10 @@ class VisualDirector {
     }
     func setToBoard(){
         isInMission = true
+        findPriorityView()
     }
     func exitBoard(){
         isInMission = false
+        findPriorityView()
     }
 }

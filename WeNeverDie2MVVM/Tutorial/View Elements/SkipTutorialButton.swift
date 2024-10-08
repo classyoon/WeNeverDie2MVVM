@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SkipTutorialButton: View {
-    @ObservedObject var vm : ViewDirectorVM
+    @EnvironmentObject var vm : ViewDirectorVM
     
   
     var body: some View {
@@ -24,6 +24,6 @@ struct SkipTutorialButton: View {
 
 struct firstTutorialSetup_Previews: PreviewProvider {
     static var previews: some View {
-        SkipTutorialButton(vm: ViewDirectorVM())
+        SkipTutorialButton().environmentObject(ViewDirectorVM())
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct firstTutorialExit: View {
-    @ObservedObject var vm : ViewDirectorVM
+    @EnvironmentObject var vm : ViewDirectorVM
 
     var body: some View {
         Button(!vm.showBoardTutorial() ? "Begin Game" : "Begin Exploring"){
@@ -20,6 +20,6 @@ struct firstTutorialExit: View {
 
 struct firstTutorialExit_Previews: PreviewProvider {
     static var previews: some View {
-        firstTutorialExit(vm: ViewDirectorVM())
+        firstTutorialExit().environmentObject(ViewDirectorVM())
     }
 }
