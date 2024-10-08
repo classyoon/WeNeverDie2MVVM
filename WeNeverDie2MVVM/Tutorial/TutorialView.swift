@@ -10,6 +10,18 @@ import SwiftUI
 /*
  Needs GameManager to tell if isInMission
  */
+struct FirstExit : View {
+    @EnvironmentObject var vm : ViewDirectorVM
+    var body: some View {
+        VStack{
+            HStack{
+                Button("Return"){
+                    vm.returnView()
+                }.buttonStyle(.bordered)
+            }
+        }.padding()
+    }
+}
 
 struct TutorialView: View {
     @State var largeText = false
@@ -29,26 +41,39 @@ struct TutorialView: View {
     
     
     var firstSkip : some View {
-        (vm.shouldShowSkip() ? SkipTutorialButton(vm: vm) : nil)
+        (vm.shouldShowSkip() ? SkipTutorialButton() : nil)
+    }
+    var firstExit : some View {
+        (vm.shouldShowSkip() ? nil : FirstExit() )
     }
     var secondSkip : some View {
-        vm.shouldShowSkip() ? firstTutorialExit(vm: vm) : nil
+        vm.shouldShowSkip() ? firstTutorialExit() : nil
+    }
+    var secondExit : some View {
+        (vm.shouldShowSkip() ? nil : FirstExit() )
     }
     var body: some View {
         ScrollView {
             VStack{
+                
                 textSizeButton
-                firstSkip//Show skip if the player hasn't viewed camp tutorial or hasn't viewed outside tutorial while in a mission.
+                HStack{
+                    firstExit
+                    firstSkip//Show skip if the player hasn't viewed camp tutorial or hasn't viewed outside tutorial while in a mission.
+                }
                 if vm.showBoardTutorial() == false {
                     CampPhaseTutorial()
                 }else  {
                     OutsidePhaseTutorial()
                 }
                 
-                secondSkip
-                
+                HStack{
+                    secondSkip
+                    secondExit
+                }
                 !vm.shouldShowSkip() ? Link("Like this game, have suggestions, have bugs? Join the discord", destination: URL(string: "https://discord.gg/ZbAMAjfghk")!).font(.title) : nil
-            }.textSelection(.enabled)
+            }
+            .textSelection(.enabled)
                 .font(largeText ? .title2 : .body).padding().navigationTitle(vm.showBoardTutorial() ? "Outside Tutorial" : "Camp Tutorial")
         }
     }

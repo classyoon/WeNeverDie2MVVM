@@ -12,9 +12,7 @@ struct GameView: View {
     var body: some View {
         VStack {
             switch vm.showScreen {
-            case .outsideTutorial:
-                TutorialView()
-            case .campTutorial:
+            case .tutorial :
                 TutorialView()
             case .board:
                 OutsideView()
@@ -33,6 +31,10 @@ struct OutsideView: View {
         Button("Move"){
             vm.leaveBoard()
         }
+        Button("Tutorial"){
+            vm.enterTutorial()
+        }
+
     }
 }
 struct CampView: View {
@@ -41,6 +43,9 @@ struct CampView: View {
         Text("In")
         Button("Move"){
             vm.swapToBoard()
+        }
+        Button("Tutorial"){
+            vm.enterTutorial()
         }
     }
 }
