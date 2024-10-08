@@ -38,9 +38,9 @@ class ViewDirectorVM : ObservableObject {
     }
     
     
-    init(model: VisualDirector, showScreen: MandatoryScreenShow = .camp) {
+    init(model: VisualDirector) {
         self.model = model
-        self.showScreen = showScreen
+        self.showScreen = model.findPriorityView()
     }
     
     init(showScreen : MandatoryScreenShow){
@@ -63,16 +63,23 @@ class VisualDirector {
     var seenOutTutorial = false
     func findPriorityView()->MandatoryScreenShow{
         var temp = MandatoryScreenShow.camp
+        print("Find priority \(seenOutTutorial)")
+        print("seenOutside \(seenOutTutorial)")
+        print("seenOutside \(isInMission)")
         if !seenOutTutorial && isInMission {
             temp = .outsideTutorial
+            print("1")
         }else if !seenCampTutorial && !isInMission {
             temp = .campTutorial
+            print("2")
         }
         else if isInMission {
             temp = .board
+            print("3")
         }
         else {
             temp = .camp
+            print("4")
         }
         return temp
     }

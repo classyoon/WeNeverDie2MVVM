@@ -13,21 +13,21 @@ struct GameView: View {
         VStack {
             switch vm.showScreen {
             case .outsideTutorial:
-                TutorialView(vm:vm)
+                TutorialView()
             case .campTutorial:
-                TutorialView(vm:vm)
+                TutorialView()
             case .board:
-                OutsideView(vm: vm)
+                OutsideView()
             case .camp:
-                CampView(vm : vm)
+                CampView()
                     
             }
          
-        }
+        }.environmentObject(vm)
     }
 }
 struct OutsideView: View {
-    @ObservedObject var vm : ViewDirectorVM
+    @EnvironmentObject var vm : ViewDirectorVM
     var body: some View {
         Text("Out")
         Button("Move"){
@@ -36,7 +36,7 @@ struct OutsideView: View {
     }
 }
 struct CampView: View {
-    @ObservedObject var vm : ViewDirectorVM
+    @EnvironmentObject var vm : ViewDirectorVM
     var body: some View {
         Text("In")
         Button("Move"){

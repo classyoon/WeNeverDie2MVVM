@@ -12,9 +12,8 @@ import SwiftUI
  */
 
 struct TutorialView: View {
-    @ObservedObject var vm : ViewDirectorVM
     @State var largeText = false
-    
+    @EnvironmentObject var vm : ViewDirectorVM
     
     var textSizeButton : some View {
         Button("Toggle Text Enlargement") {
@@ -57,7 +56,7 @@ struct TutorialView: View {
 }
     struct TutorialView_Previews: PreviewProvider {
         static var previews: some View {
-            TutorialView(vm: ViewDirectorVM(showScreen: .outsideTutorial))
+            TutorialView()
         }
     }
     
