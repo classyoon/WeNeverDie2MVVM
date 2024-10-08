@@ -49,7 +49,7 @@ class ViewDirectorVM : ObservableObject {
     }
 }
 
-enum ScreenId {
+enum ForcedView {
     case outsideTutorial, campTutorial, board, camp
 }
 enum ShowScreen {
@@ -60,7 +60,7 @@ class VisualDirector {
     var isInMission = false
     var seenCampTutorial = false
     var seenOutTutorial = false
-    var currentScreen : ScreenId = .campTutorial
+    var currentScreen : ForcedView = .campTutorial
     private func findPriorityView(){
         if !seenOutTutorial && isInMission {
             currentScreen = .outsideTutorial

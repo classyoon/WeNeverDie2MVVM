@@ -9,8 +9,6 @@ import SwiftUI
 
 struct SkipTutorialButton: View {
     @EnvironmentObject var vm : ViewDirectorVM
-    
-  
     var body: some View {
         VStack{
             HStack{
