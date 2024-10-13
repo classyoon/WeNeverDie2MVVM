@@ -11,7 +11,7 @@ class ViewDirectorVM : ObservableObject {
     @Published var showScreen : ShowScreen
     func skipTutorial(){
         model.skipTutorial()
-        showScreen = model.setShowScreen()
+        showScreen = model.getShowScreen()
     }
     func showBoardTutorial()-> Bool{
         return model.isInMission
@@ -20,23 +20,23 @@ class ViewDirectorVM : ObservableObject {
         return model.shouldShowSkip()
     }
     func returnView(){
-        showScreen = model.setShowScreen()
+        showScreen = model.getShowScreen()
     }
-    func enterTutorial(){
+    func enterTutorialView(){
         showScreen = .tutorial
     }
-    func swapToBoard(){
+    func swapToOutsideView(){
         model.setToBoard()
-        showScreen = model.setShowScreen()
+        showScreen = model.getShowScreen()
     }
-    func leaveBoard(){
-        model.exitBoard()
-        showScreen = model.setShowScreen()
+    func leaveOutsideView(){
+        model.exitOutsideView()
+        showScreen = model.getShowScreen()
     }
     
     init(model: VisualDirector) {
         self.model = model
-        self.showScreen = model.setShowScreen()
+        self.showScreen = model.getShowScreen()
     }
     
     init(showScreen : ShowScreen){
@@ -45,22 +45,23 @@ class ViewDirectorVM : ObservableObject {
     }
     init(){
         self.model = VisualDirector()
-        self.showScreen = model.setShowScreen()
+        self.showScreen = model.getShowScreen()
     }
 }
 
-enum ForcedView {
+enum IntendedView : Codable {
     case outsideTutorial, campTutorial, board, camp
 }
 enum ShowScreen {
     case tutorial, board, camp
 }
+    
 
 class VisualDirector {
     var isInMission = false
     var seenCampTutorial = false
     var seenOutTutorial = false
-    var currentScreen : ForcedView = .campTutorial
+    var currentScreen : IntendedView = .campTutorial
     private func findPriorityView(){
         if !seenOutTutorial && isInMission {
             currentScreen = .outsideTutorial
@@ -74,7 +75,7 @@ class VisualDirector {
             currentScreen = .camp
         }
     }
-    func setShowScreen()->ShowScreen{
+    func getShowScreen()->ShowScreen{
         findPriorityView()
         if currentScreen == .campTutorial || currentScreen == .outsideTutorial{
             return .tutorial
@@ -105,7 +106,7 @@ class VisualDirector {
         isInMission = true
         findPriorityView()
     }
-    func exitBoard(){
+    func exitOutsideView(){
         isInMission = false
         findPriorityView()
     }

@@ -17,10 +17,8 @@ struct GameView: View {
             case .board:
                 OutsideView()
             case .camp:
-                CampView()
-                    
+                CampView(vm: CampViewModel())
             }
-         
         }.environmentObject(vm)
     }
 }
@@ -29,27 +27,63 @@ struct OutsideView: View {
     var body: some View {
         Text("Out")
         Button("Move"){
-            vm.leaveBoard()
+            vm.leaveOutsideView()
         }
         Button("Tutorial"){
-            vm.enterTutorial()
+            vm.enterTutorialView()
         }
 
     }
 }
 struct CampView: View {
-    @EnvironmentObject var vm : ViewDirectorVM
+    @EnvironmentObject var viewDirector : ViewDirectorVM
+    @ObservedObject var vm : CampViewModel
     var body: some View {
         Text("In")
+        Text("People \(vm.getPeopleNum())")
+        Text("People Leaving \(vm.getTravelers())")
+        Button("Increase"){
+            vm.increaseTravelers()
+        }
         Button("Move"){
-            vm.swapToBoard()
+            viewDirector.swapToOutsideView()
         }
         Button("Tutorial"){
-            vm.enterTutorial()
+            viewDirector.enterTutorialView()
         }
     }
 }
 
+class CampViewModel : ObservableObject {
+    @ObservedObject var model : CampModel = CampModel()
+    func getPeopleNum()->Int{
+        return model.getPeopleNum()
+    }
+    func getTravelers()->Int{
+        return model.getTravelers()
+    }
+    func increaseTravelers(){
+        model.increaseTravelers()
+    }
+}
+
+class CampModel : ObservableObject {
+    var peopleNumber : Int = 3
+    var travelersNumber : Int = 0
+    func getPeopleNum()->Int{
+        return peopleNumber
+    }
+    func getTravelers()->Int{
+        return travelersNumber
+    }
+    func increaseTravelers(){
+        if travelersNumber < peopleNumber {
+            travelersNumber += 1
+        }
+    }
+   
+    
+}
 
 #Preview {
     GameView(vm : ViewDirectorVM())

@@ -35,14 +35,8 @@ enum SFXTag: String, CaseIterable {
 }
 import Foundation
 import AVFoundation
-//let kurtSong = Bundle.main.url(forResource: "Kurt - Cheel", withExtension: "mp3")
-//var musicPlayer = try? AVAudioPlayer(contentsOf: (kurtSong!))
 class AudioManager: ObservableObject {
-    //TODO: Make slow things in audiomanager asynchronous
     static let shared = AudioManager()
-    
-
-    
     var musicPlayer: AVAudioPlayer?
     var songList = [String : URL]()
     var soundEffects = [SFXTag : URL]()
