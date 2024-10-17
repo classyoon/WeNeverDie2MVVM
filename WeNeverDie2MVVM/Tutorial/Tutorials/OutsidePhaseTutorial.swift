@@ -89,7 +89,7 @@ Once you are satisfied with your haul or if things get too dicey, get your survi
         VStack {
             Text("Defending Yourself").font(.title)
             Text(defending)
-            Image("NewBoardExample").resizable().frame(width: 300, height: 300)
+            Image("NewOutsideExample").resizable().frame(width: 300, height: 300)
             Text("Those Who Never Die").font(.title)
             Text(shambler)
             Image("AgroZombie").resizable().frame(width: 350, height: 200).padding()
@@ -103,7 +103,7 @@ Once you are satisfied with your haul or if things get too dicey, get your survi
             Text(survivorDescrip)
             Image("SurvivorY").resizable().frame(width: 350, height: 200)
             Text(moving)
-            Image("NewBoardExample").resizable().frame(width: 300, height: 300)
+            Image("NewOutsideExample").resizable().frame(width: 300, height: 300)
             Text(staminaAndHP)
         }
     }
@@ -113,7 +113,7 @@ Once you are satisfied with your haul or if things get too dicey, get your survi
             Text(searching)
             Image("SurvivorW").resizable().frame(width: 350, height: 200)
             Text(growing)
-            Image("NewBoardExample").resizable().frame(width: 300, height: 300)
+            Image("NewOutsideExample").resizable().frame(width: 300, height: 300)
         }
     }
    

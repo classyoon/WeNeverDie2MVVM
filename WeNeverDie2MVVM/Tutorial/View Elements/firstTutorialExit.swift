@@ -11,7 +11,7 @@ struct firstTutorialExit: View {
     @EnvironmentObject var vm : ViewDirectorVM
 
     var body: some View {
-        Button(!vm.showBoardTutorial() ? "Begin Game" : "Begin Exploring"){
+        Button(!vm.showOutsideTutorial() ? "Begin Game" : "Begin Exploring"){
             vm.skipTutorial()
         }.buttonStyle(.bordered)
             .padding()

@@ -67,11 +67,11 @@ struct TileData {
 //}
 //struct TilePieceDisplay: View {//This is the building block of everything.
 //    let row, col : Int
-//    @ObservedObject var board : Board
+//    @ObservedObject var outside : Outside
 //    @ObservedObject var gameData : GameManager
 //    @ViewBuilder
 //    func getTileAppearance(row : Int, col : Int)-> some View{//Gets apperance, but not effect game.
-//        switch board.terrainBoard[row][col].name{//Really all the same but diff pics, could be streamlined with dictionary
+//        switch outside.terrainOutside[row][col].name{//Really all the same but diff pics, could be streamlined with dictionary
 //        case "h":
 //            TileView(image: "building", tileLocation: Coord(row, col))
 //        case "t":
@@ -93,14 +93,14 @@ struct TileData {
 //    
 //    func getSelectionAppearance()-> some View {
 //        Group {
-//            if let loc = board.tappedSquare, loc.col == col && loc.row == row {
+//            if let loc = outside.tappedSquare, loc.col == col && loc.row == row {
 //                RoundedRectangle(cornerRadius: 30).fill(Color.blue.opacity(0.3)).padding()
 //            }
-//            if board.isPossibleLoc(row: row, col: col) && board.unitWasSelected {
+//            if outside.isPossibleLoc(row: row, col: col) && outside.unitWasSelected {
 //                Circle().fill(Color.white.opacity(0.3)).padding()
 //            }
-//            if board.isPossibleLoc(row: row, col: col) && board.unitWasSelected {
-//                if let piece = board.pieces[Coord(row, col)] {
+//            if outside.isPossibleLoc(row: row, col: col) && outside.unitWasSelected {
+//                if let piece = outside.pieces[Coord(row, col)] {
 //                    if piece.team == .undead {
 //                        Circle().fill(Color.red.opacity(0.5)).padding()
 //                    }
@@ -113,7 +113,7 @@ struct TileData {
 //    }
 //    private func handleTapGesture(){
 //        withAnimation {
-//            board.handleTap(tapRow: row, tapCol: col)
+//            outside.handleTap(tapRow: row, tapCol: col)
 //        }
 //    }
 //
@@ -121,8 +121,8 @@ struct TileData {
 //        ZStack {
 //            getTileAppearance(row: row, col: col)
 //            getSelectionAppearance()
-//            if let piece = board.pieces[Coord(row, col)]{
-//                if !board.isSquareEmpty(Coord(row, col)){
+//            if let piece = outside.pieces[Coord(row, col)]{
+//                if !outside.isSquareEmpty(Coord(row, col)){
 //                    PieceDisplay(gameData: gameData, piece: piece)
 //                }
 //            }

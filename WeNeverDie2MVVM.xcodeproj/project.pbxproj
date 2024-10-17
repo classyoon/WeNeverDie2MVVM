@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0BC1DC2CC17688008240E0 /* Camp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0BC1DB2CC17688008240E0 /* Camp.swift */; };
 		CAC47AF82C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47AF72C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift */; };
 		CAC47AFE2C8CD76F008AF768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC47AFD2C8CD76F008AF768 /* Assets.xcassets */; };
 		CAC47B012C8CD76F008AF768 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B002C8CD76F008AF768 /* Preview Assets.xcassets */; };
@@ -81,6 +82,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA0BC1DB2CC17688008240E0 /* Camp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camp.swift; sourceTree = "<group>"; };
 		CAC47AF42C8CD76E008AF768 /* WeNeverDie2MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeNeverDie2MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC47AF72C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeNeverDie2MVVMApp.swift; sourceTree = "<group>"; };
 		CAC47AFD2C8CD76F008AF768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				CAC47B732C8CD9B4008AF768 /* Sounds */,
 				CAC47AF72C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift */,
 				CAC47B252C8CD825008AF768 /* GameView.swift */,
+				CA0BC1DB2CC17688008240E0 /* Camp.swift */,
 				CAC47B232C8CD7B8008AF768 /* ViewDirector.swift */,
 				CAC47C692C8CDBF9008AF768 /* Coord.swift */,
 				CAC47C672C8CDBDB008AF768 /* Tile.swift */,
@@ -507,6 +510,7 @@
 				CAC47B322C8CD8F1008AF768 /* OutsidePhaseTutorial.swift in Sources */,
 				CAC47B302C8CD8F1008AF768 /* BuildTutorial.swift in Sources */,
 				CAC47B332C8CD8F1008AF768 /* firstTutorialExit.swift in Sources */,
+				CA0BC1DC2CC17688008240E0 /* Camp.swift in Sources */,
 				CAC47BA72C8CD9B4008AF768 /* AudioManager.swift in Sources */,
 				CAC47C6A2C8CDBF9008AF768 /* Coord.swift in Sources */,
 				CAC47C682C8CDBDB008AF768 /* Tile.swift in Sources */,

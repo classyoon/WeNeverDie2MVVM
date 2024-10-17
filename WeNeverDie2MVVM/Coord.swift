@@ -1,6 +1,6 @@
 //
 //  Coord.swift
-//  BoardGame
+//  OutsideGame
 //
 //  Created by Tim Yoon on 11/27/22.
 //

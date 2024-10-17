@@ -61,7 +61,7 @@ struct TutorialView: View {
                     firstExit
                     firstSkip//Show skip if the player hasn't viewed camp tutorial or hasn't viewed outside tutorial while in a mission.
                 }
-                if vm.showBoardTutorial() == false {
+                if vm.showOutsideTutorial() == false {
                     CampPhaseTutorial()
                 }else  {
                     OutsidePhaseTutorial()
@@ -74,7 +74,7 @@ struct TutorialView: View {
                 !vm.shouldShowSkip() ? Link("Like this game, have suggestions, have bugs? Join the discord", destination: URL(string: "https://discord.gg/ZbAMAjfghk")!).font(.title) : nil
             }
             .textSelection(.enabled)
-                .font(largeText ? .title2 : .body).padding().navigationTitle(vm.showBoardTutorial() ? "Outside Tutorial" : "Camp Tutorial")
+                .font(largeText ? .title2 : .body).padding().navigationTitle(vm.showOutsideTutorial() ? "Outside Tutorial" : "Camp Tutorial")
         }
     }
     
