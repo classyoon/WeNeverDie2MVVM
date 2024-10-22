@@ -25,30 +25,33 @@ final class WeNeverDie2MVVMTests: XCTestCase {
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
+    /*
+     The following tests whether the screen changes work as they should.
+     */
     func testScreenChanges() throws {
         let game = GameModel()
         let vm = ViewDirectorVM(model: game.viewDirector)
         
-        XCTAssertEqual(game.viewDirector.currentScreen, .campTutorial, "Start in Camp Tutorial")
+        XCTAssertEqual(game.viewDirector.currentScreen, .campTutorial, "Player starts in Camp Tutorial")
         XCTAssertEqual(vm.showScreen, .tutorial, "Start on Tutorial View")
         XCTAssertTrue(vm.shouldShowSkip())
         
         vm.skipTutorial()
-        XCTAssertEqual(game.viewDirector.currentScreen, .camp, "Move to camp")
-        XCTAssertEqual(vm.showScreen, .camp, "Move to camp view")
+        XCTAssertEqual(game.viewDirector.currentScreen, .camp, "Player enters camp")
+        XCTAssertEqual(vm.showScreen, .camp, "Move to Camp View")
         
         vm.swapToOutsideView()
-        XCTAssertEqual(game.viewDirector.currentScreen, .outsideTutorial, "Enter outside tutorial")
+        XCTAssertEqual(game.viewDirector.currentScreen, .outsideTutorial, "Player leaves camp and enters outside tutorial")
         XCTAssertEqual(vm.showScreen, .tutorial, "Return to Tutorial View")
         XCTAssertTrue(vm.shouldShowSkip())
         
         vm.skipTutorial()
-        XCTAssertEqual(game.viewDirector.currentScreen, .outside, "enter outside")
-        XCTAssertEqual(vm.showScreen, .outside, "move to outside view")
+        XCTAssertEqual(game.viewDirector.currentScreen, .outside, "Player exits outside tutorial")
+        XCTAssertEqual(vm.showScreen, .outside, "Move to Outside View")
         
         vm.leaveOutsideView()
-        XCTAssertEqual(game.viewDirector.currentScreen, .camp, "Return to camp")
-        XCTAssertEqual(vm.showScreen, .camp, "Return to camp view")
+        XCTAssertEqual(game.viewDirector.currentScreen, .camp, "Player returns to camp")
+        XCTAssertEqual(vm.showScreen, .camp, "Return to Camp View")
         
         XCTAssertFalse(vm.shouldShowSkip())
     }
@@ -59,4 +62,11 @@ final class WeNeverDie2MVVMTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    func testAudioManagerLoadingTime() throws {
+            measure {
+                let audioManager = AudioManager()
+                audioManager.loadSFX() // Assuming loadSFX is the method that loads sound effects
+                audioManager.loadSongs() // And loadSongs is for loading songs
+            }
+        }
 }
