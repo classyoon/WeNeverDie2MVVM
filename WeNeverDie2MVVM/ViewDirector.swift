@@ -62,13 +62,11 @@ class VisualDirector {
     var seenCampTutorial = false
     var seenOutTutorial = false
     var currentScreen : IntendedView = .campTutorial
-    var shared : VisualDirector
-    private init(isInMission: Bool = false, seenCampTutorial: Bool = false, seenOutTutorial: Bool = false, currentScreen: IntendedView, shared: VisualDirector) {
+    init(isInMission: Bool = false, seenCampTutorial: Bool = false, seenOutTutorial: Bool = false, currentScreen: IntendedView = .campTutorial) {
         self.isInMission = isInMission
         self.seenCampTutorial = seenCampTutorial
         self.seenOutTutorial = seenOutTutorial
         self.currentScreen = currentScreen
-        self.shared = shared
     }
     
     

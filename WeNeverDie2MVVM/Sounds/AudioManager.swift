@@ -89,7 +89,7 @@ class AudioManager: ObservableObject {
         }
     }
 
-    private func loadSFX() {
+     func loadSFX() {
         //I (main thread) give the task to the manager (background thread)
         DispatchQueue.global().async{ [weak self] in //make sure they know that I might move on without them
             let lock = NSLock() //this is the master lock so that the interns take turns
@@ -114,7 +114,7 @@ class AudioManager: ObservableObject {
         
     }
 
-    private func loadSongs() {
+     func loadSongs() {
         songList = [
             "Kurt": AudioManager.soundURL("Kurt - Cheel"),
             "Death": AudioManager.soundURL("Shadows - Anno Domini Beats"),
