@@ -59,4 +59,11 @@ final class WeNeverDie2MVVMTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    func testAudioManagerLoadingTime() throws {
+            measure {
+                let audioManager = AudioManager()
+                audioManager.loadSFX() // Assuming loadSFX is the method that loads sound effects
+                audioManager.loadSongs() // And loadSongs is for loading songs
+            }
+        }
 }
