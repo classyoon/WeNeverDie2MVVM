@@ -4,7 +4,7 @@
 //
 //  Created by Conner Yoon on 10/17/24.
 //
-
+import SwiftUI
 import Foundation
 class CampViewModel : ObservableObject {
     var model : CampModel = CampModel()
