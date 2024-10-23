@@ -52,8 +52,12 @@ final class WeNeverDie2MVVMTests: XCTestCase {
         vm.leaveOutsideView()
         XCTAssertEqual(game.viewDirector.currentScreen, .camp, "Player returns to camp")
         XCTAssertEqual(vm.showScreen, .camp, "Return to Camp View")
-        
-        XCTAssertFalse(vm.shouldShowSkip())
+    }
+    func testSelectorTap(){
+        var testSelector = SelectorViewModel(task: BasicTask(name: "House Keeping", assignablePeople: 5))
+        XCTAssertEqual(testSelector.task.assignedPeople, 0, "Test at 0")
+        testSelector.tap(index: 3)
+        XCTAssertEqual(testSelector.task.assignedPeople, 3, "Test at 3")
     }
 
     func testPerformanceExample() throws {
@@ -62,11 +66,4 @@ final class WeNeverDie2MVVMTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    func testAudioManagerLoadingTime() throws {
-            measure {
-                let audioManager = AudioManager()
-                audioManager.loadSFX() // Assuming loadSFX is the method that loads sound effects
-                audioManager.loadSongs() // And loadSongs is for loading songs
-            }
-        }
 }

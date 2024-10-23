@@ -6,7 +6,7 @@
 //
 
 import XCTest
-
+@testable import WeNeverDie2MVVM
 final class WeNeverDie2MVVMUITests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -27,8 +27,12 @@ final class WeNeverDie2MVVMUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
+        
+        
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+   
+
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
