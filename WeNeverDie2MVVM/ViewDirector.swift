@@ -71,16 +71,18 @@ class VisualDirector {
     
     
     private func findPriorityView(){
-        if !seenOutTutorial && isInMission {
-            currentScreen = .outsideTutorial
-        }else if !seenCampTutorial && !isInMission {
-            currentScreen = .campTutorial
-        }
-        else if isInMission {
-            currentScreen = .outside
-        }
-        else {
-            currentScreen = .camp
+        if isInMission {
+            if !seenOutTutorial {
+                currentScreen = .outsideTutorial
+            }else{
+                currentScreen = .outside
+            }
+        }else{
+            if !seenCampTutorial {
+                currentScreen = .campTutorial
+            }else{
+                currentScreen = .camp
+            }
         }
     }
     
@@ -113,14 +115,11 @@ class VisualDirector {
         }else {
             seenOutTutorial = true
         }
-        
     }
     func setToOutside(){
         isInMission = true
-        findPriorityView()
     }
     func exitOutsideView(){
         isInMission = false
-        findPriorityView()
     }
 }

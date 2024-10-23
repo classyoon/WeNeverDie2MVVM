@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import WeNeverDie2MVVM
-
+import Testing
 final class WeNeverDie2MVVMTests: XCTestCase {
 
     override func setUpWithError() throws {
