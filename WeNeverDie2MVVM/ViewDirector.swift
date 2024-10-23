@@ -14,7 +14,7 @@ class ViewDirectorVM : ObservableObject {
         showScreen = model.getShowScreen()
     }
     func showOutsideTutorial()-> Bool{
-        return model.isInMission
+        return model.shouldShowOutsideTutorial()
     }
     func shouldShowSkip()->Bool {
         return model.shouldShowSkip()
@@ -58,10 +58,10 @@ enum ShowScreen {
     
 
 class VisualDirector {
-    var isInMission = false
-    var seenCampTutorial = false
-    var seenOutTutorial = false
-    var currentScreen : IntendedView = .campTutorial
+    private var isInMission : Bool
+    private var seenCampTutorial : Bool
+    private var seenOutTutorial : Bool
+    var currentScreen : IntendedView
     init(isInMission: Bool = false, seenCampTutorial: Bool = false, seenOutTutorial: Bool = false, currentScreen: IntendedView = .campTutorial) {
         self.isInMission = isInMission
         self.seenCampTutorial = seenCampTutorial
@@ -82,6 +82,10 @@ class VisualDirector {
         else {
             currentScreen = .camp
         }
+    }
+    
+    func shouldShowOutsideTutorial()->Bool{
+        return seenOutTutorial
     }
     func getShowScreen()->ShowScreen{
         findPriorityView()
@@ -109,6 +113,7 @@ class VisualDirector {
         }else {
             seenOutTutorial = true
         }
+        
     }
     func setToOutside(){
         isInMission = true

@@ -14,10 +14,12 @@ struct WeNeverDie2MVVMApp: App {
     var body: some Scene {
         WindowGroup{
             GameView(vm : ViewDirectorVM(model: game.viewDirector))
-        }
+        }.environmentObject(game)
     }
 }
 
 class GameModel : ObservableObject {
     @Published var viewDirector = VisualDirector()
+    @Published var camp = CampModel()
+
 }
