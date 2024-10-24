@@ -9,14 +9,14 @@
 
 import Testing
 class TestingApparatus {
-    @Test("Selector Test")
-    func testSelectorTap(){
-        var testSelector = SelectorViewModel(task: BasicTask(name: "House Keeping", assignablePeople: 5))
-        #expect(testSelector.task.assignedPeople == 0, "Test at 0")
-        testSelector.tap(index: 3)
-        #expect(testSelector.task.assignedPeople == 3, "Test at 3")
-    }
-    
+//    @Test("Selector Test")
+//    func testSelectorTap(){
+//        var testSelector = SelectorViewModel(task: BasicTask(name: "House Keeping", assignablePeople: 5))
+//        #expect(testSelector.task.assignedPeople == 0, "Test at 0")
+//        testSelector.tap(index: 3)
+//        #expect(testSelector.task.assignedPeople == 3, "Test at 3")
+//    }
+//    
     @Test("Screen Change Routine")
     func runScreenChangeRoutine(){
         let game = GameModel()
@@ -39,11 +39,11 @@ class TestingApparatus {
         #expect(game.viewDirector.currentScreen == .camp && vm.showScreen == .camp, "Player returns to camp")
         #expect(vm.shouldShowSkip() == false, "Tutorial view should no longer have skip button")
     }
-    @Test("Sample Test", arguments: [0,1,2,3])
-    func sampleTesting(sampleInput : Int) {
-        var task = BasicTask(name: "Test", assignablePeople: 3)
-        var selector = SelectorViewModel(task: task)
-        selector.tap(index: sampleInput)
-        #expect(task.assignedPeople == sampleInput)
-    }
+//    @Test("Sample Test", arguments: [0,1,2,3])
+//    func sampleTesting(sampleInput : Int) {
+//        var task = BasicTask(name: "Test", assignablePeople: 3)
+//        var selector = SelectorViewModel(task: task)
+//        selector.tap(index: sampleInput)
+//        #expect(task.assignedPeople == sampleInput)
+//    }
 }

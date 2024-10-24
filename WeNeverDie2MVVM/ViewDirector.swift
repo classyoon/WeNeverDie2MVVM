@@ -69,42 +69,36 @@ class VisualDirector {
         self.currentScreen = currentScreen
     }
     
-    
-    private func findPriorityView(){
+
+    private func findPriorityView() {
         if isInMission {
-            if !seenOutTutorial {
-                currentScreen = .outsideTutorial
-            }else{
-                currentScreen = .outside
-            }
-        }else{
-            if !seenCampTutorial {
-                currentScreen = .campTutorial
-            }else{
-                currentScreen = .camp
-            }
+            currentScreen = seenOutTutorial ? .outside : .outsideTutorial
+        } else {
+            currentScreen = seenCampTutorial ? .camp : .campTutorial
         }
     }
+
     
     func shouldShowOutsideTutorial()->Bool{
         return seenOutTutorial
     }
     func getShowScreen()->ShowScreen{
         findPriorityView()
-        if currentScreen == .campTutorial || currentScreen == .outsideTutorial{
+        
+        switch currentScreen {
+        case .outsideTutorial:
             return .tutorial
-        }else if currentScreen == .outside {
+        case .campTutorial:
+            return .tutorial
+        case .outside:
             return .outside
-        }else{
+        case .camp:
             return .camp
         }
     }
     
     func shouldShowSkip()->Bool {
-        if currentScreen == .campTutorial && !seenCampTutorial {
-            return true
-        }
-        if currentScreen == .outsideTutorial && !seenOutTutorial {
+        if (currentScreen == .campTutorial && !seenCampTutorial || currentScreen == .outsideTutorial && !seenOutTutorial){
             return true
         }
         return false
