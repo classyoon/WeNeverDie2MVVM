@@ -5,65 +5,45 @@
 //  Created by Conner Yoon on 9/7/24.
 //
 
-import XCTest
 @testable import WeNeverDie2MVVM
+
 import Testing
-final class WeNeverDie2MVVMTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+class TestingApparatus {
+    @Test("Selector Test")
+    func testSelectorTap(){
+        var testSelector = SelectorViewModel(task: BasicTask(name: "House Keeping", assignablePeople: 5))
+        #expect(testSelector.task.assignedPeople == 0, "Test at 0")
+        testSelector.tap(index: 3)
+        #expect(testSelector.task.assignedPeople == 3, "Test at 3")
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-    /*
-     The following tests whether the screen changes work as they should.
-     */
-    func testScreenChanges() throws {
+    
+    @Test("Screen Change Routine")
+    func runScreenChangeRoutine(){
         let game = GameModel()
         let vm = ViewDirectorVM(model: game.viewDirector)
         
-        XCTAssertEqual(game.viewDirector.currentScreen, .campTutorial, "Player starts in Camp Tutorial")
-        XCTAssertEqual(vm.showScreen, .tutorial, "Start on Tutorial View")
-        XCTAssertTrue(vm.shouldShowSkip())
-        
+        #expect(game.viewDirector.currentScreen == .campTutorial, "Player starts in Camp Tutorial")
+        #expect(vm.showScreen == .tutorial && vm.shouldShowSkip(), "Start on Tutorial View")
         vm.skipTutorial()
-        XCTAssertEqual(game.viewDirector.currentScreen, .camp, "Player enters camp")
-        XCTAssertEqual(vm.showScreen, .camp, "Move to Camp View")
+        
+        #expect(game.viewDirector.currentScreen == .camp && vm.showScreen == .camp, "Player enters camp")
         
         vm.swapToOutsideView()
-        XCTAssertEqual(game.viewDirector.currentScreen, .outsideTutorial, "Player leaves camp and enters outside tutorial")
-        XCTAssertEqual(vm.showScreen, .tutorial, "Return to Tutorial View")
-        XCTAssertTrue(vm.shouldShowSkip())
+        #expect(game.viewDirector.currentScreen == .outsideTutorial, "Player leaves camp and enters outside tutorial")
+        #expect(vm.showScreen == .tutorial && vm.shouldShowSkip(), "Return to Tutorial View")
         
         vm.skipTutorial()
-        XCTAssertEqual(game.viewDirector.currentScreen, .outside, "Player exits outside tutorial")
-        XCTAssertEqual(vm.showScreen, .outside, "Move to Outside View")
+        #expect(game.viewDirector.currentScreen == .outside && vm.showScreen == .outside, "Player exits outside tutorial")
         
         vm.leaveOutsideView()
-        XCTAssertEqual(game.viewDirector.currentScreen, .camp, "Player returns to camp")
-        XCTAssertEqual(vm.showScreen, .camp, "Return to Camp View")
+        #expect(game.viewDirector.currentScreen == .camp && vm.showScreen == .camp, "Player returns to camp")
+        #expect(vm.shouldShowSkip() == false, "Tutorial view should no longer have skip button")
     }
-    func testSelectorTap(){
-        var testSelector = SelectorViewModel(task: BasicTask(name: "House Keeping", assignablePeople: 5))
-        XCTAssertEqual(testSelector.task.assignedPeople, 0, "Test at 0")
-        testSelector.tap(index: 3)
-        XCTAssertEqual(testSelector.task.assignedPeople, 3, "Test at 3")
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    @Test("Sample Test", arguments: [0,1,2,3])
+    func sampleTesting(sampleInput : Int) {
+        var task = BasicTask(name: "Test", assignablePeople: 3)
+        var selector = SelectorViewModel(task: task)
+        selector.tap(index: sampleInput)
+        #expect(task.assignedPeople == sampleInput)
     }
 }
