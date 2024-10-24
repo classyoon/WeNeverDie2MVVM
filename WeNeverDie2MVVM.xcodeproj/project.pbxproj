@@ -65,7 +65,6 @@
 		CAC5B6502CC86126004ED5AC /* CampVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5B64F2CC86126004ED5AC /* CampVM.swift */; };
 		CAC5B6532CC86141004ED5AC /* CampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5B6522CC86141004ED5AC /* CampView.swift */; };
 		CAC5B6552CC86152004ED5AC /* CampTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5B6542CC86152004ED5AC /* CampTasks.swift */; };
-		CAC5B6572CC861B4004ED5AC /* TaskLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5B6562CC861B4004ED5AC /* TaskLibrary.swift */; };
 		CAC5B6592CC867F7004ED5AC /* LazySurvivorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5B6582CC867F7004ED5AC /* LazySurvivorSelector.swift */; };
 /* End PBXBuildFile section */
 
@@ -148,7 +147,6 @@
 		CAC5B64F2CC86126004ED5AC /* CampVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampVM.swift; sourceTree = "<group>"; };
 		CAC5B6522CC86141004ED5AC /* CampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampView.swift; sourceTree = "<group>"; };
 		CAC5B6542CC86152004ED5AC /* CampTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampTasks.swift; sourceTree = "<group>"; };
-		CAC5B6562CC861B4004ED5AC /* TaskLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLibrary.swift; sourceTree = "<group>"; };
 		CAC5B6582CC867F7004ED5AC /* LazySurvivorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazySurvivorSelector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -353,7 +351,6 @@
 				CAC5B6522CC86141004ED5AC /* CampView.swift */,
 				CA0BC1DB2CC17688008240E0 /* Camp.swift */,
 				CAC5B6542CC86152004ED5AC /* CampTasks.swift */,
-				CAC5B6562CC861B4004ED5AC /* TaskLibrary.swift */,
 			);
 			path = "Camp Group";
 			sourceTree = "<group>";
@@ -528,7 +525,6 @@
 				CAC47B242C8CD7B8008AF768 /* ViewDirector.swift in Sources */,
 				CAC5B6552CC86152004ED5AC /* CampTasks.swift in Sources */,
 				CAC47B262C8CD825008AF768 /* GameView.swift in Sources */,
-				CAC5B6572CC861B4004ED5AC /* TaskLibrary.swift in Sources */,
 				CAC47B352C8CD8F1008AF768 /* TutorialView.swift in Sources */,
 				CAC47B342C8CD8F1008AF768 /* SkipTutorialButton.swift in Sources */,
 				CAC5B6592CC867F7004ED5AC /* LazySurvivorSelector.swift in Sources */,

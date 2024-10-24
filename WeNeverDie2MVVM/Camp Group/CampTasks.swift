@@ -49,7 +49,7 @@ struct WorkingAtWorkshop : Workable {
 class WorkableVM : ObservableObject{
     @Published var people: [Person]
     var model : any Workable
-    func assign(){
+    func confirm(){
         model.assign(people)
     }
     func getName()->String{
@@ -57,13 +57,15 @@ class WorkableVM : ObservableObject{
     }
     func setPerson(_ askForPerson : Person){
         for person in people.indices {
-            if people[person] == askForPerson {
-                if people[person].activity == model.typeOfActivity {
-                    people[person].activity = .nothing
-                }else{
-                    people[person].activity = model.typeOfActivity
-                }
+            guard people[person] == askForPerson else {
+                continue
             }
+            if people[person].activity == model.typeOfActivity {
+                people[person].activity = .nothing
+            }else{
+                people[person].activity = model.typeOfActivity
+            }
+            break
         }
     }
     init(people: [Person] = Person.example, model: any Workable) {
