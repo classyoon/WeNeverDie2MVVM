@@ -37,25 +37,6 @@ enum PersonAssignmentError: Error {
         }
     }
 }
-class GoingOutside: TypicalTask {
-    init() {
-        super.init(name: "Going Outside", assignablePeople: 5)
-    }
-}
-
-class BuildingHouses: TypicalTask {
-    init() {
-        super.init(name: "Building Homes", assignablePeople: 10)
-    }
-}
-
-class CraftingTools: TypicalTask {
-    init() {
-        super.init(name: "Crafting Tools", assignablePeople: 3)
-    }
-}
-
-
 
 
 enum TaskError: Error, CustomStringConvertible {

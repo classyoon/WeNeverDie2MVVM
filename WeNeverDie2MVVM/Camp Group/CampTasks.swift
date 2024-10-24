@@ -6,99 +6,68 @@
 //
 
 import Foundation
-class BasicTask : Identifiable{
-    let id: UUID
-     var name: String
-     var assignedPeople: Int
-     var assignablePeople: Int
-    init(id: UUID = UUID(), name: String, assignedPeople: Int = 0, assignablePeople: Int) {
-        self.id = id
-        self.name = name
-        self.assignedPeople = assignedPeople
-        self.assignablePeople = assignablePeople
-    }
-    func assignPeople(amount: Int) throws {
-          // Negative assignment not allowed
-          if amount < 0 {
-              throw TaskAssigningError.negativeAssignment
-          }
-          // Prevent over-assigning
-          if amount > assignablePeople {
-              throw TaskAssigningError.exceedsAssignableLimit
-          }
-          assignedPeople = amount
-    }
-    func getAssignablePeople() throws {
-          // Negative assignment not allowed
-        if assignablePeople < 0 {
-            throw TaskAssigningError.insufficientAssignablePeople
-        }
-    }
-}
-protocol AssignableTask : Identifiable {
-    var id : UUID {get}
+protocol Completable : Identifiable &  Workable{
     var name : String {get set}
-    var assignedPeople : Int {get set}
-    var assignablePeople : Int {get set}
-    
-    func assignPeople(amount : Int) throws
-    func getAssignablePeople() throws
+    var id : UUID {get}
+    var neededProgress : Int {get set}
+    var madeProgress : Int { get set}
 }
-enum CampResources {
-    case food, material
+protocol Workable : Identifiable {
+    var name : String {get set}
+    var id : UUID {get}
+    var people : [Person] {get set}
+    var typeOfActivity : QueuedDailyActivity {get}
 }
-protocol TakesInputTask : AssignableTask {
-    var output : [ResourceNugget] {get set}
-}
-protocol TakesOutputTask : AssignableTask {
-    var input : [ResourceNugget] {get set}
-}
-struct ResourceNugget {
-    var amount : Int
-    var type : CampResources
+extension Workable {
+    mutating func assign(_ people : [Person]){
+        self.people = people
+    }
 }
 
-class TypicalTask : AssignableTask {
-    static func == (lhs: TypicalTask, rhs: TypicalTask) -> Bool {
-        return lhs.id == rhs.id
+struct GoingScavenging : Workable {
+    var name: String = "Gone Scavenging"
+    var id: UUID = UUID()
+    var people: [Person] = []
+    var typeOfActivity: QueuedDailyActivity = .goingOut
+}
+struct BuildingWorkshop : Completable {
+    var name: String = "Building Workshop"
+    var id: UUID = UUID()
+    var people: [Person] = []
+    var neededProgress: Int = 5
+    var madeProgress: Int = 0
+    var typeOfActivity: QueuedDailyActivity = .workingInCamp
+}
+struct WorkingAtWorkshop : Workable {
+    var name: String = "Working at workshop"
+    var id: UUID = UUID()
+    var people: [Person] = []
+    var typeOfActivity: QueuedDailyActivity = .nothing
+    
+}
+
+class WorkableVM : ObservableObject{
+    @Published var people: [Person]
+    var model : any Workable
+    func assign(){
+        model.assign(people)
     }
-    
-    
-    let id: UUID
-     var name: String
-     var assignedPeople: Int
-     var assignablePeople: Int
-    
-     init(name: String, assignablePeople: Int, assignedPeople: Int = 0) {
-         self.id = UUID()
-         self.name = name
-         self.assignablePeople = assignablePeople
-         self.assignedPeople = assignedPeople
-     }
-    func assignPeople(amount: Int) throws {
-          // Negative assignment not allowed
-          if amount < 0 {
-              throw TaskAssigningError.negativeAssignment
-          }
-          // Prevent over-assigning
-          if amount > assignablePeople {
-              throw TaskAssigningError.exceedsAssignableLimit
-          }
-          assignedPeople = amount
+    func getName()->String{
+        model.name
     }
-    func getAssignablePeople() throws {
-          // Negative assignment not allowed
-        if assignablePeople < 0 {
-            throw TaskAssigningError.insufficientAssignablePeople
+    func setPerson(_ askForPerson : Person){
+        for person in people.indices {
+            if people[person] == askForPerson {
+                if people[person].activity == model.typeOfActivity {
+                    people[person].activity = .nothing
+                }else{
+                    people[person].activity = model.typeOfActivity
+                }
+            }
         }
     }
-}
-class TakesToMakeTask : TypicalTask, TakesInputTask & TakesOutputTask  {
-    var output: [ResourceNugget]
-    var input: [ResourceNugget]
-    init(output : [ResourceNugget] = [], input : [ResourceNugget] = []) {
-        self.output = output
-        self.input = input
-        super.init(name: "Crafting Tools", assignablePeople: 3)
+    init(people: [Person] = Person.example, model: any Workable) {
+        self.people = people
+        self.model = model
     }
 }

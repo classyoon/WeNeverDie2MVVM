@@ -7,22 +7,16 @@
 
 import Foundation
 class CampViewModel : ObservableObject {
-    @Published var showBuildMenu = false
-    @Published var showBuildInfo = false
-    @Published var displayInfo  = false
-    @Published var showWarning = false
-    var model : CampModel
-    @Published var tasks : [BasicTask] = [BasicTask(name: "Farming", assignablePeople: 3), BasicTask(name: "Building", assignablePeople: 3)]
-    func getPeopleNum()->Int{
-        return model.getPeopleNum()
-    }
- 
-    init(showBuildMenu: Bool = false, showBuildInfo: Bool = false, displayInfo: Bool = false, showWarning: Bool = false, model: CampModel = CampModel(), tasks : [BasicTask] = [BasicTask(name: "Farming", assignablePeople: 3), BasicTask(name: "Building", assignablePeople: 3)]){
+    @Published var showBuildMenu : Bool
+    @Published var showBuildInfo : Bool
+    @Published var displayInfo  : Bool
+    @Published var showWarning : Bool
+    @Published var workablesVM : [WorkableVM] = [WorkableVM(model: GoingScavenging())]
+    init(showBuildMenu: Bool = false, showBuildInfo: Bool = false, displayInfo: Bool = false, showWarning: Bool = false, workablesVM : [WorkableVM] = [WorkableVM(model: GoingScavenging())]){
         self.showBuildMenu = showBuildMenu
         self.showBuildInfo = showBuildInfo
         self.displayInfo = displayInfo
         self.showWarning = showWarning
-        self.model = model
-        self.tasks = tasks
+        self.workablesVM = workablesVM
     }
 }

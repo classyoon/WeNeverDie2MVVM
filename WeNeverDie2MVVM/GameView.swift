@@ -18,7 +18,7 @@ struct GameView: View {
             case .outside:
                 OutsideView()
             case .camp:
-                CampView(vm: CampViewModel(model: game.camp))
+                CampView(vm: CampViewModel())
             }
         }.environmentObject(vm)
     }

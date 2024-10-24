@@ -12,11 +12,10 @@ struct CampView: View {
     var body: some View {
         VStack{
             Text("In")
-            Text("People \(vm.getPeopleNum())")
           
-            ForEach(vm.tasks) { task in
-                LazySurvivorSelector(audio: AudioManager.shared, vm: SelectorViewModel(task: task))
-            }
+            Text("\(vm.workablesVM[0].getName())")
+            LazySurvivorSelector(audio: AudioManager.shared, vm: vm.workablesVM[0])
+            
             Button("Move"){
                 viewDirector.swapToOutsideView()
             }
