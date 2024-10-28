@@ -25,6 +25,18 @@ struct CampView: View {
             Button("Tutorial"){
                 viewDirector.enterTutorialView()
             }
+            
+        }.overlay{
+            if vm.displayInfo {
+                VStack{
+                    Text(vm.inspectedPerson?.name ?? "Error")
+                    Button("Exit"){
+                        vm.displayInfo = false
+                    }
+                }
+                    .frame(width: 200, height: 100)
+                    .background(in: Rectangle())
+            }
         }
     }
 }

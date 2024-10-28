@@ -11,13 +11,14 @@ class CampViewModel : ObservableObject {
     @Published var showBuildInfo : Bool
     @Published var displayInfo  : Bool
     @Published var showWarning : Bool
+    @Published var inspectedPerson : Person?
     var model : CampModel
     @Published var workablesVM : [WorkableVM] = []
     @Published var canLeave : Bool
     func updateLeaveStatus(){
         canLeave = model.canLeave()
     }
-    init(showBuildMenu: Bool = false, showBuildInfo: Bool = false, displayInfo: Bool = false, showWarning: Bool = false, model : CampModel = CampModel(), canLeave : Bool = false){
+    init(showBuildMenu: Bool = false, showBuildInfo: Bool = false, displayInfo: Bool = false, showWarning: Bool = false, model : CampModel = CampModel(), canLeave : Bool = false, inspectedPerson : Person? = nil){
         self.showBuildMenu = showBuildMenu
         self.showBuildInfo = showBuildInfo
         self.displayInfo = displayInfo
@@ -28,6 +29,7 @@ class CampViewModel : ObservableObject {
             workablesVM.append(WorkableVM(model: workable))
         }
         self.canLeave = model.canLeave()
+        self.inspectedPerson = inspectedPerson
     }
    
 }
