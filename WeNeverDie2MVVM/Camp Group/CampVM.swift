@@ -11,12 +11,38 @@ class CampViewModel : ObservableObject {
     @Published var showBuildInfo : Bool
     @Published var displayInfo  : Bool
     @Published var showWarning : Bool
-    @Published var workablesVM : [WorkableVM] = [WorkableVM(model: GoingScavenging())]
-    init(showBuildMenu: Bool = false, showBuildInfo: Bool = false, displayInfo: Bool = false, showWarning: Bool = false, workablesVM : [WorkableVM] = [WorkableVM(model: GoingScavenging())]){
+    var model : CampModel
+    @Published var workablesVM : [WorkableVM] = []
+    @Published var canLeave : Bool
+    func updateLeaveStatus(){
+        canLeave = model.canLeave()
+    }
+    init(showBuildMenu: Bool = false, showBuildInfo: Bool = false, displayInfo: Bool = false, showWarning: Bool = false, model : CampModel = CampModel(), canLeave : Bool = false){
         self.showBuildMenu = showBuildMenu
         self.showBuildInfo = showBuildInfo
         self.displayInfo = displayInfo
         self.showWarning = showWarning
-        self.workablesVM = workablesVM
+        self.model = model
+        self.canLeave = false
+        for workable in model.workables {
+            workablesVM.append(WorkableVM(model: workable))
+        }
+        self.canLeave = model.canLeave()
     }
+   
 }
+struct CampModel {
+    var workables : [any Workable] = workablesExample
+    var people : [Person] = Person.example
+    func canLeave()->Bool{
+        for person in people {
+            guard person.activity == .goingOut else {
+                continue
+            }
+            return true
+        }
+        return false
+    }
+    
+}
+let workablesExample : [any Workable] = [GoingScavenging(), BuildingWorkshop(), WorkingAtWorkshop()]

@@ -22,6 +22,7 @@ extension Workable {
     mutating func assign(_ people : [Person]){
         self.people = people
     }
+    
 }
 
 struct GoingScavenging : Workable {
@@ -46,9 +47,13 @@ struct WorkingAtWorkshop : Workable {
     
 }
 
-class WorkableVM : ObservableObject{
+class WorkableVM : ObservableObject, Equatable, Identifiable{
+    var id: UUID = UUID()
     @Published var people: [Person]
     var model : any Workable
+    static func == (lhs: WorkableVM, rhs: WorkableVM) -> Bool {
+        lhs.model.id == rhs.model.id
+    }
     func confirm(){
         model.assign(people)
     }

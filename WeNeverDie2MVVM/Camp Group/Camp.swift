@@ -6,9 +6,7 @@
 //
 import Foundation
 
-class Stockpile : ObservableObject {
-    var people : [Person] = Person.example
-}
+
 class Person : Identifiable, Equatable, ObservableObject {
     static func == (lhs: Person, rhs: Person) -> Bool {
         lhs.id == rhs.id

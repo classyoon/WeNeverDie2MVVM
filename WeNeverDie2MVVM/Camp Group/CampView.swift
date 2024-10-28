@@ -9,15 +9,18 @@ import Foundation
 struct CampView: View {
     @EnvironmentObject var viewDirector : ViewDirectorVM
     @ObservedObject var vm : CampViewModel
+    
     var body: some View {
         VStack{
             Text("In")
-          
-            Text("\(vm.workablesVM[0].getName())")
-            LazySurvivorSelector(audio: AudioManager.shared, vm: vm.workablesVM[0])
-            
-            Button("Move"){
-                viewDirector.swapToOutsideView()
+            ForEach(vm.workablesVM){ workable in
+                Text("\(workable.getName())")
+                LazySurvivorSelector(vm: workable).environmentObject(vm)
+            }
+            Button(vm.canLeave ? "Head to outside" : "Wait next day"){
+                if vm.canLeave {
+                    viewDirector.swapToOutsideView()
+                }
             }
             Button("Tutorial"){
                 viewDirector.enterTutorialView()

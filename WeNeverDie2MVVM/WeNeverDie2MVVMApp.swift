@@ -20,6 +20,5 @@ struct WeNeverDie2MVVMApp: App {
 
 class GameModel : ObservableObject {
     @Published var viewDirector = VisualDirector()
-    @Published var camp = Stockpile()
 
 }
