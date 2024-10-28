@@ -17,11 +17,11 @@ struct ButtonGridView : View {
             LazyVGrid(columns: columns, spacing: 0) {
                 ForEach(vm.people) { person in
                     VStack{
-                        SurvivorButtonView(person : person)
+                        SurvivorButtonView()
                         HStack{
-                            InfoButtonView().environmentObject(person)
+                            InfoButtonView()
                         }
-                    }
+                    }.environmentObject(person)
                 }
             }.environmentObject(vm)
         }
@@ -29,7 +29,7 @@ struct ButtonGridView : View {
 }
 struct SurvivorButtonView :View {
     @EnvironmentObject var vm : WorkableVM
-    @ObservedObject var person : Person
+    @EnvironmentObject var person : Person
     @EnvironmentObject var campvm : CampViewModel
     var body: some View {
         Button {
@@ -61,10 +61,13 @@ struct LazySurvivorSelector: View {
 
 struct InfoButtonView : View {
     @EnvironmentObject var person : Person
+    @EnvironmentObject var campvm : CampViewModel
     var body: some View {
         HStack{
             Button {
                 print("Button pressed")
+                campvm.displayInfo = true
+                campvm.inspectedPerson = person
             } label: {
                 Image(systemName: "info.circle")
             }.padding(0)
