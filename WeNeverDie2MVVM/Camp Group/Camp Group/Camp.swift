@@ -32,8 +32,6 @@ struct CampModel {
         
         return peopleLeaving
     }
-    
-    
 }
 let workablesExample : [any Workable] = [GoingScavenging(), BuildingWorkshop(), WorkingAtWorkshop()]
 

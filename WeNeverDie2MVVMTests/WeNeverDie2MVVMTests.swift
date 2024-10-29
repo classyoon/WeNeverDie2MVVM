@@ -18,7 +18,6 @@ class TestingApparatus {
         workVM.setPerson(workVM.people[at])
         campVM.updateLeaveStatus()
         #expect(campVM.canLeave == true)
-        campVM.confirm()
     }
     @Test("Outside Move Test")
     func testOutsideGeneration(){

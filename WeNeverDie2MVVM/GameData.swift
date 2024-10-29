@@ -19,5 +19,4 @@ class GameModel : ObservableObject {
     func setOutside()->OutsideModel{
         OutsideModel(people: campModel.getLeavers())
     }
-    
 }
