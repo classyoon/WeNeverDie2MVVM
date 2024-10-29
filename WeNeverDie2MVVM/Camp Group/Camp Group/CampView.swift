@@ -9,6 +9,7 @@ import Foundation
 struct CampView: View {
     @EnvironmentObject var viewDirector : ViewDirectorVM
     @ObservedObject var vm : CampViewModel
+    @EnvironmentObject var game : GameModel
     
     var body: some View {
         VStack{

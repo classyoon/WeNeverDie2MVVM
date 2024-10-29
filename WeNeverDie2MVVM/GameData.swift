@@ -11,7 +11,13 @@ class GameModel : ObservableObject {
     var outsideModel = OutsideModel()
     var campModel = CampModel()
     var people : [Person] = Person.example
-    var projects : [any Completable] = []
+    var projects : [any Workable] = [BuildingWorkshop(), GoingScavenging(), WorkingAtWorkshop()]
     
+    func setCamp(){
+        campModel = CampModel(workables: projects, people: people)
+    }
+    func setOutside(people : [Person]){
+        outsideModel = OutsideModel(people: people)
+    }
     
 }
