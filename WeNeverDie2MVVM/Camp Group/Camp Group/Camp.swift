@@ -20,6 +20,18 @@ struct CampModel {
     mutating func confirm(new : [any Workable]){
         workables = new
     }
+    func getLeavers()->[Person]{
+        var peopleLeaving : [Person] = []
+            for person in people {
+                guard person.activity == .goingOut else {
+                    continue
+                }
+                peopleLeaving.append(person)
+               
+            }
+        
+        return peopleLeaving
+    }
     
     
 }

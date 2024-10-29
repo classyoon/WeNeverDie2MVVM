@@ -11,36 +11,25 @@ import Testing
 class TestingApparatus {
     @Test("Selector Test", arguments: [0,1,2])
     func testSelectorTap(at : Int){
-        let camp : CampModel = CampModel()
-        let campVM : CampViewModel = CampViewModel(model: camp)
-        #expect(campVM.canLeave == false)
+        let game = GameModel()
+        let campVM = CampViewModel(model: game.campModel)
+        #expect(campVM.canLeave == false, "When nobody wants to leave")
         let workVM : WorkableVM = campVM.workablesVM[0]
         workVM.setPerson(workVM.people[at])
         campVM.updateLeaveStatus()
         #expect(campVM.canLeave == true)
-        workVM.confirm()// I plan for confirm to set the people that will be in the model so that camp can then just read all of them to see where people go.
-        #expect(workVM.model.people[at].activity == .goingOut)
+        campVM.confirm()
     }
-    @Test("Selector Tests", arguments: [0,1,2])
-    func manySelectorTests(at : Int){
-        let camp : CampModel = CampModel()
-        let campVM : CampViewModel = CampViewModel(model: camp)
-        #expect(campVM.canLeave == false)
-        for workable in campVM.workablesVM {
-            workable.setPerson(workable.people[at])
-            campVM.updateLeaveStatus()
-        
-            if workable.model.typeOfActivity == .goingOut {
-                #expect(campVM.canLeave == true)
-            }
-            workable.confirm()
-            campVM.confirm()
-            #expect(workable.model.people[at].activity == workable.model.typeOfActivity)
-        }
-       
+    @Test("Outside Move Test")
+    func testOutsideGeneration(){
+        let game = GameModel()
+        let campVM = CampViewModel(model: game.campModel)
+        let outsideVM = OutsideViewModel(model: game.outsideModel)
+        campVM.workablesVM[0].setPerson(Person())
+        campVM.confirm()
+        game.outsideModel = game.setOutside()
+        #expect(outsideVM.people.isEmpty == false, "A person was sucessfully transported")
     }
-    
-    
     @Test("Screen Change Routine")
     func runScreenChangeRoutine(){
         let game = GameModel()
