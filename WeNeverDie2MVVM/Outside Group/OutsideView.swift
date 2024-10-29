@@ -28,7 +28,7 @@ struct OutsideView: View {
 }
 
 #Preview {
-    GameView( vm : ViewDirectorVM(showScreen: .outside))
+    OutsideView(vm: OutsideViewModel(model: OutsideModel())).environmentObject(ViewDirectorVM())
 }
 
 

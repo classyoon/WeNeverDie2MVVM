@@ -43,5 +43,5 @@ struct CampView: View {
 
 
 #Preview {
-    GameView(vm: ViewDirectorVM(showScreen: .camp))
+    GameView(vm: ViewDirectorVM(showScreen: .camp)).environmentObject(GameModel())
 }
