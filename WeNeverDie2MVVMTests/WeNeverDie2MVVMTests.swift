@@ -29,10 +29,12 @@ class TestingApparatus {
         for workable in campVM.workablesVM {
             workable.setPerson(workable.people[at])
             campVM.updateLeaveStatus()
-//            if workable.model.typeOfActivity == .goingOut {
-//                #expect(campVM.canLeave == true)
-//            }
+        
+            if workable.model.typeOfActivity == .goingOut {
+                #expect(campVM.canLeave == true)
+            }
             workable.confirm()
+            campVM.confirm()
             #expect(workable.model.people[at].activity == workable.model.typeOfActivity)
         }
        

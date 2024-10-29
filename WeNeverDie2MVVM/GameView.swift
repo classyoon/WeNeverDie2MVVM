@@ -16,24 +16,11 @@ struct GameView: View {
             case .tutorial :
                 TutorialView()
             case .outside:
-                OutsideView()
+                OutsideView(vm: OutsideViewModel(model: game.outsideModel))
             case .camp:
-                CampView(vm: CampViewModel())
+                CampView(vm: CampViewModel(model: game.campModel))
             }
         }.environmentObject(vm)
-    }
-}
-struct OutsideView: View {
-    @EnvironmentObject var vm : ViewDirectorVM
-    var body: some View {
-        Text("Out")
-        Button("Move"){
-            vm.leaveOutsideView()
-        }
-        Button("Tutorial"){
-            vm.enterTutorialView()
-        }
-
     }
 }
 

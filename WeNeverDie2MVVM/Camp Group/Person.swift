@@ -1,11 +1,11 @@
 //
-//  Camp.swift
+//  Person.swift
 //  WeNeverDie2MVVM
 //
-//  Created by Conner Yoon on 10/17/24.
+//  Created by Conner Yoon on 10/28/24.
 //
-import Foundation
 
+import Foundation
 
 class Person : Identifiable, Equatable, ObservableObject {
     static func == (lhs: Person, rhs: Person) -> Bool {

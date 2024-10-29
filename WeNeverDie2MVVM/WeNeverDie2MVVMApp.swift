@@ -18,7 +18,3 @@ struct WeNeverDie2MVVMApp: App {
     }
 }
 
-class GameModel : ObservableObject {
-    @Published var viewDirector = VisualDirector()
-
-}

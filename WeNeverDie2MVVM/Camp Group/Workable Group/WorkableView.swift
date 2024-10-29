@@ -1,5 +1,5 @@
 //
-//  LazySurvivorSelector.swift
+//  WorkableView.swift
 //  WeNeverDie
 //
 //  Created by Conner Yoon on 4/5/23.
@@ -7,8 +7,17 @@
 
 import SwiftUI
 
+struct WorkableView: View {
+    @ObservedObject var vm : WorkableVM
 
-struct ButtonGridView : View {
+    var body: some View {
+        VStack{
+            ArrayOfPersonButtonsView()
+        }.environmentObject(vm)
+        .background(.brown.opacity(0.7))
+    }
+}
+struct ArrayOfPersonButtonsView : View {
     let columns = [GridItem(.adaptive(minimum: 100))]
     @EnvironmentObject var vm : WorkableVM
    
@@ -17,7 +26,7 @@ struct ButtonGridView : View {
             LazyVGrid(columns: columns, spacing: 0) {
                 ForEach(vm.people) { person in
                     VStack{
-                        SurvivorButtonView()
+                        PersonButtonView()
                         HStack{
                             InfoButtonView()
                         }
@@ -27,7 +36,7 @@ struct ButtonGridView : View {
         }
     }
 }
-struct SurvivorButtonView :View {
+struct PersonButtonView :View {
     @EnvironmentObject var vm : WorkableVM
     @EnvironmentObject var person : Person
     @EnvironmentObject var campvm : CampViewModel
@@ -43,22 +52,6 @@ struct SurvivorButtonView :View {
         }
     }
 }
-
-
-
-struct LazySurvivorSelector: View {
-    @ObservedObject var vm : WorkableVM
-
-    var body: some View {
-        VStack{
-            ButtonGridView()
-        }.environmentObject(vm)
-        .background(.brown.opacity(0.7))
-    }
-}
-
-
-
 struct InfoButtonView : View {
     @EnvironmentObject var person : Person
     @EnvironmentObject var campvm : CampViewModel
@@ -76,4 +69,9 @@ struct InfoButtonView : View {
         }
        
     }
+}
+//var camp : CampVM = Camp
+#Preview {
+    
+    WorkableView(vm: WorkableVM(model: GoingScavenging()))
 }

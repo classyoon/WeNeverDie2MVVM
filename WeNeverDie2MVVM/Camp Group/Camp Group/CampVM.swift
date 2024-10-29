@@ -31,20 +31,13 @@ class CampViewModel : ObservableObject {
         self.canLeave = model.canLeave()
         self.inspectedPerson = inspectedPerson
     }
+    func confirm(){
+        var newList : [any Workable] = []
+        for workableVM in workablesVM {
+            workableVM.confirm()
+            newList.append(workableVM.model)
+        }
+        model.confirm(new: newList)
+    }
    
 }
-struct CampModel {
-    var workables : [any Workable] = workablesExample
-    var people : [Person] = Person.example
-    func canLeave()->Bool{
-        for person in people {
-            guard person.activity == .goingOut else {
-                continue
-            }
-            return true
-        }
-        return false
-    }
-    
-}
-let workablesExample : [any Workable] = [GoingScavenging(), BuildingWorkshop(), WorkingAtWorkshop()]

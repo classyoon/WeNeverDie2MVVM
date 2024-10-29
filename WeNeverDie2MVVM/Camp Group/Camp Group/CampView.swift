@@ -15,7 +15,7 @@ struct CampView: View {
             Text("In")
             ForEach(vm.workablesVM){ workable in
                 Text("\(workable.getName())")
-                LazySurvivorSelector(vm: workable).environmentObject(vm)
+                WorkableView(vm: workable).environmentObject(vm)
             }
             Button(vm.canLeave ? "Head to outside" : "Wait next day"){
                 if vm.canLeave {
