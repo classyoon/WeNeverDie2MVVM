@@ -36,6 +36,7 @@ class TestingApparatus {
         let vm = ViewDirectorVM(model: game.viewDirector)
         
         #expect(game.viewDirector.currentScreen == .campTutorial, "Player starts in Camp Tutorial")
+        #expect(vm.showOutsideTutorial() == false, "Tutorial should not be in outside mode.")
         #expect(vm.showScreen == .tutorial && vm.shouldShowSkip(), "Start on Tutorial View")
         vm.skipTutorial()
         
@@ -43,13 +44,18 @@ class TestingApparatus {
         
         vm.swapToOutsideView()
         #expect(game.viewDirector.currentScreen == .outsideTutorial, "Player leaves camp and enters outside tutorial")
+        #expect(vm.showOutsideTutorial() == true, "Tutorial should be in outside mode.")
         #expect(vm.showScreen == .tutorial && vm.shouldShowSkip(), "Return to Tutorial View")
         
         vm.skipTutorial()
         #expect(game.viewDirector.currentScreen == .outside && vm.showScreen == .outside, "Player exits outside tutorial")
+        vm.enterTutorialView()
+        #expect(game.viewDirector.currentScreen == .outsideTutorial, "The tutorial should be the outside tutorial.")
         
         vm.leaveOutsideView()
         #expect(game.viewDirector.currentScreen == .camp && vm.showScreen == .camp, "Player returns to camp")
         #expect(vm.shouldShowSkip() == false, "Tutorial view should no longer have skip button")
+        vm.enterTutorialView()
+        #expect(game.viewDirector.currentScreen == .campTutorial, "The tutorial should be the camp tutorial.")
     }
 }

@@ -24,6 +24,7 @@ class ViewDirectorVM : ObservableObject {
     }
     func enterTutorialView(){
         showScreen = .tutorial
+        model.setWhichTutorial()
     }
     func swapToOutsideView(){
         model.setToOutside()
@@ -69,6 +70,13 @@ class VisualDirector {
         self.currentScreen = currentScreen
     }
     
+    func setWhichTutorial(){
+        if isInMission {
+            currentScreen = .outsideTutorial
+        }else{
+            currentScreen = .campTutorial
+        }
+    }
 
     private func findPriorityView() {
         if isInMission {
@@ -80,7 +88,10 @@ class VisualDirector {
 
     
     func shouldShowOutsideTutorial()->Bool{
-        return seenOutTutorial
+        if currentScreen == .outsideTutorial  {
+            return true
+        }
+        return false
     }
     func getShowScreen()->ShowScreen{
         findPriorityView()
