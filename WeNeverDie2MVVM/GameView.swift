@@ -24,7 +24,8 @@ struct GameView: View {
     }
 }
 
+var testGame : GameModel = GameModel()
 #Preview {
-    GameView(vm : ViewDirectorVM())
+    GameView(vm : ViewDirectorVM(model: testGame.viewDirector)).environmentObject(testGame)
 }
 
