@@ -67,5 +67,21 @@ class TestingApparatus {
         outsideVM.exit()
         #expect(model.people[0].vitality == .killed)
     }
+    @Test("Testing funeral")
+    func testBurial(){
+        let game = GameModel()
+        let outsideVM = OutsideViewModel(model: game.outsideModel)
+        let campVm = CampViewModel(model: game.campModel)
+        let workVM = WorkableVM(model: game.campModel.workables[0])
+        
+        workVM.setPerson(workVM.model.people[0])
+        workVM.confirm()
+        game.outsideModel = game.setOutside()
+        
+        outsideVM.killPerson()
+        #expect(outsideVM.people[0].vitality == .killed)
+        outsideVM.exit()
+        #expect(game.outsideModel.people[0].vitality == .killed)
+    }
   
 }
