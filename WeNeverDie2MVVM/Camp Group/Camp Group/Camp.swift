@@ -32,6 +32,12 @@ struct CampModel {
         
         return peopleLeaving
     }
+    func updatePeople(){
+        for person in people {
+            if person.vitality == .killed{
+                print("Womp womp, \(person.name) died")
+            }
+        }
+    }
 }
 let workablesExample : [any Workable] = [GoingScavenging(), BuildingWorkshop(), WorkingAtWorkshop()]
-

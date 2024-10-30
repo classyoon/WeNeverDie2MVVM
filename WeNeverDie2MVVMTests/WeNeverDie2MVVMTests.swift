@@ -57,4 +57,15 @@ class TestingApparatus {
         vm.enterTutorialView()
         #expect(game.viewDirector.currentScreen == .campTutorial, "The tutorial should be the camp tutorial.")
     }
+    @Test("Testing death")
+    func testDeath(){
+        let model = OutsideModel(people: [Person("Bob")])
+        let outsideVM = OutsideViewModel(model: model)
+        
+        outsideVM.killPerson()
+        #expect(outsideVM.people[0].vitality == .killed)
+        outsideVM.exit()
+        #expect(model.people[0].vitality == .killed)
+    }
+  
 }

@@ -56,7 +56,6 @@ enum IntendedView : Codable {
 enum ShowScreen {
     case tutorial, outside, camp
 }
-    
 
 class VisualDirector {
     private var isInMission : Bool
