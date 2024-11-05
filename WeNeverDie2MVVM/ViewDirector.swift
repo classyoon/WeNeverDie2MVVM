@@ -61,12 +61,18 @@ class VisualDirector {
     private var isInMission : Bool
     private var seenCampTutorial : Bool
     private var seenOutTutorial : Bool
+    private var showTutorialSeq : Bool = false
     var currentScreen : IntendedView
     init(isInMission: Bool = false, seenCampTutorial: Bool = false, seenOutTutorial: Bool = false, currentScreen: IntendedView = .campTutorial) {
         self.isInMission = isInMission
         self.seenCampTutorial = seenCampTutorial
         self.seenOutTutorial = seenOutTutorial
         self.currentScreen = currentScreen
+        if showTutorialSeq == false {
+            self.seenOutTutorial = true
+            self.seenCampTutorial = true
+            self.currentScreen = .camp
+        }
     }
     
     func setWhichTutorial(){

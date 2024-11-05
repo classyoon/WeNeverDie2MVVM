@@ -14,8 +14,8 @@ struct OutsideView: View {
         VStack{
             Text("Out")
             Button("Move"){
-                vm.exit()
                 viewDirector.leaveOutsideView()
+                vm.exit()
             }
             ForEach(vm.people){ person in
                 Text(person.name)
@@ -51,6 +51,18 @@ class OutsideModel {
     func returnPeople()->[Person]{
         return people
     }
+    func exit()->[Person]{
+        var peopleLeaving : [Person] = []
+            for person in people {
+                guard person.vitality == .alive else {
+                    continue
+                }
+                peopleLeaving.append(person)
+               
+            }
+        
+        return peopleLeaving
+    }
 }
 
 class OutsideViewModel : ObservableObject {
@@ -64,10 +76,14 @@ class OutsideViewModel : ObservableObject {
         people = model.getPeople()
     }
     func killPerson(){
-        var target = people.randomElement()
-        target?.vitality = .killed
+//        var target = people.randomElement()?.vitality
+//        print("name \(target?.name ?? "Nobody")")
+//        target?.vitality = .killed
+//        people.randomElement()?.vitality = .killed
+        people[0].vitality = .killed
     }
     func exit(){
-        model.people = people
+        model.setPeople(people)
     }
+  
 }

@@ -72,12 +72,14 @@ class TestingApparatus {
         let game = GameModel()
         let outsideVM = OutsideViewModel(model: game.outsideModel)
         let campVm = CampViewModel(model: game.campModel)
-        let workVM = WorkableVM(model: game.campModel.workables[0])
+        let goingOutside = WorkableVM(model: game.campModel.workables[0])
         
-        workVM.setPerson(workVM.model.people[0])
-        workVM.confirm()
+
+        
+        goingOutside.setPerson(game.campModel.people[0])
+        goingOutside.confirm()
         game.outsideModel = game.setOutside()
-        
+//        #expect(outsideVM.people.count == 1)
         outsideVM.killPerson()
         #expect(outsideVM.people[0].vitality == .killed)
         outsideVM.exit()

@@ -9,7 +9,6 @@ import Foundation
 struct CampView: View {
     @EnvironmentObject var viewDirector : ViewDirectorVM
     @ObservedObject var vm : CampViewModel
-    @EnvironmentObject var game : GameModel
     
     var body: some View {
         VStack{
@@ -21,6 +20,7 @@ struct CampView: View {
             Button(vm.canLeave ? "Head to outside" : "Wait next day"){
                 if vm.canLeave {
                     viewDirector.swapToOutsideView()
+                    vm.confirm()
                 }
             }
             Button("Tutorial"){

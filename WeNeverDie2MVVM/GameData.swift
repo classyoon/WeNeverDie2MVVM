@@ -14,7 +14,7 @@ class GameModel : ObservableObject {
     var projects : [any Workable] = workablesExample
     
     func setCamp()->CampModel{
-         CampModel(workables: projects, people: people)
+        CampModel(workables: projects, people: people+outsideModel.exit())
     }
     func setOutside()->OutsideModel{
         OutsideModel(people: campModel.getLeavers())
