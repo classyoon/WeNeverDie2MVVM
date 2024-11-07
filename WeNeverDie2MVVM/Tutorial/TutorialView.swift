@@ -8,7 +8,7 @@
 import SwiftUI
 
 /*
- Needs GameManager to tell if isInMission
+ Needs GameManager to tell if isAdventuring
  */
 struct FirstExit : View {
     @EnvironmentObject var vm : ViewDirectorVM
@@ -59,12 +59,12 @@ struct TutorialView: View {
                 textSizeButton
                 HStack{
                     firstExit
-                    firstSkip//Show skip if the player hasn't viewed camp tutorial or hasn't viewed outside tutorial while in a mission.
+                    firstSkip//Show skip if the player hasn't viewed camp tutorial or hasn't viewed adventure tutorial while in a mission.
                 }
                 if vm.showOutsideTutorial() == false {
                     CampPhaseTutorial()
                 }else  {
-                    OutsidePhaseTutorial()
+                    AdventuringTutorial()
                 }
                 
                 HStack{

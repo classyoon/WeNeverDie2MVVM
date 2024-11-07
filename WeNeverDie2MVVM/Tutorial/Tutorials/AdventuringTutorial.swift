@@ -1,5 +1,5 @@
 //
-//  OutsidePhaseTutorial.swift
+//  AdventuringTutorial.swift
 //  WeNeverDie
 //
 //  Created by Conner Yoon on 7/20/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OutsidePhaseTutorial: View {
+struct AdventuringTutorial: View {
     var body: some View {
         VStack{
             Text(welcome)
@@ -161,7 +161,7 @@ Once you are satisfied with your haul or if things get too dicey, get your survi
 struct OutsidePhaseTutorial_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView{
-            OutsidePhaseTutorial()
+            AdventuringTutorial()
         }
     }
 }

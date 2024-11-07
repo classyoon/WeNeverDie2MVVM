@@ -12,6 +12,11 @@ protocol Completable : Identifiable &  Workable{
     var neededProgress : Int {get set}
     var madeProgress : Int { get set}
 }
+extension Completable {
+    mutating func moveProgress(){
+        madeProgress += 1
+    }
+}
 struct GoingScavenging : Workable {
     var name: String = "Gone Scavenging"
     var id: UUID = UUID()

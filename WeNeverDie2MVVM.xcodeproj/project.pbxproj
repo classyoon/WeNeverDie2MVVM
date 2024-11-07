@@ -18,7 +18,7 @@
 		CAC47B262C8CD825008AF768 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B252C8CD825008AF768 /* GameView.swift */; };
 		CAC47B302C8CD8F1008AF768 /* BuildTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B272C8CD8F1008AF768 /* BuildTutorial.swift */; };
 		CAC47B312C8CD8F1008AF768 /* CampPhaseTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B282C8CD8F1008AF768 /* CampPhaseTutorial.swift */; };
-		CAC47B322C8CD8F1008AF768 /* OutsidePhaseTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B292C8CD8F1008AF768 /* OutsidePhaseTutorial.swift */; };
+		CAC47B322C8CD8F1008AF768 /* AdventuringTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B292C8CD8F1008AF768 /* AdventuringTutorial.swift */; };
 		CAC47B332C8CD8F1008AF768 /* firstTutorialExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B2B2C8CD8F1008AF768 /* firstTutorialExit.swift */; };
 		CAC47B342C8CD8F1008AF768 /* SkipTutorialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B2C2C8CD8F1008AF768 /* SkipTutorialButton.swift */; };
 		CAC47B352C8CD8F1008AF768 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B2E2C8CD8F1008AF768 /* TutorialView.swift */; };
@@ -68,7 +68,7 @@
 		CAC5B6592CC867F7004ED5AC /* WorkableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5B6582CC867F7004ED5AC /* WorkableView.swift */; };
 		CAE6D9CB2CD05B65000A929C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D9CA2CD05B65000A929C /* Person.swift */; };
 		CAE6D9CD2CD05C1D000A929C /* Workable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D9CC2CD05C1D000A929C /* Workable.swift */; };
-		CAE6D9D22CD05E6F000A929C /* OutsideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D9D12CD05E6F000A929C /* OutsideView.swift */; };
+		CAE6D9D22CD05E6F000A929C /* AdventureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D9D12CD05E6F000A929C /* AdventureView.swift */; };
 		CAE6D9D42CD0643D000A929C /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D9D32CD0643D000A929C /* GameData.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,7 +104,7 @@
 		CAC47B252C8CD825008AF768 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		CAC47B272C8CD8F1008AF768 /* BuildTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildTutorial.swift; sourceTree = "<group>"; };
 		CAC47B282C8CD8F1008AF768 /* CampPhaseTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampPhaseTutorial.swift; sourceTree = "<group>"; };
-		CAC47B292C8CD8F1008AF768 /* OutsidePhaseTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutsidePhaseTutorial.swift; sourceTree = "<group>"; };
+		CAC47B292C8CD8F1008AF768 /* AdventuringTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuringTutorial.swift; sourceTree = "<group>"; };
 		CAC47B2B2C8CD8F1008AF768 /* firstTutorialExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstTutorialExit.swift; sourceTree = "<group>"; };
 		CAC47B2C2C8CD8F1008AF768 /* SkipTutorialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkipTutorialButton.swift; sourceTree = "<group>"; };
 		CAC47B2E2C8CD8F1008AF768 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		CAC5B6582CC867F7004ED5AC /* WorkableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkableView.swift; sourceTree = "<group>"; };
 		CAE6D9CA2CD05B65000A929C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		CAE6D9CC2CD05C1D000A929C /* Workable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workable.swift; sourceTree = "<group>"; };
-		CAE6D9D12CD05E6F000A929C /* OutsideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideView.swift; sourceTree = "<group>"; };
+		CAE6D9D12CD05E6F000A929C /* AdventureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureView.swift; sourceTree = "<group>"; };
 		CAE6D9D32CD0643D000A929C /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,7 +252,7 @@
 			children = (
 				CAC47B272C8CD8F1008AF768 /* BuildTutorial.swift */,
 				CAC47B282C8CD8F1008AF768 /* CampPhaseTutorial.swift */,
-				CAC47B292C8CD8F1008AF768 /* OutsidePhaseTutorial.swift */,
+				CAC47B292C8CD8F1008AF768 /* AdventuringTutorial.swift */,
 			);
 			path = Tutorials;
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 		CAE6D9D02CD05E55000A929C /* Outside Group */ = {
 			isa = PBXGroup;
 			children = (
-				CAE6D9D12CD05E6F000A929C /* OutsideView.swift */,
+				CAE6D9D12CD05E6F000A929C /* AdventureView.swift */,
 			);
 			path = "Outside Group";
 			sourceTree = "<group>";
@@ -567,8 +567,8 @@
 				CAC5B6592CC867F7004ED5AC /* WorkableView.swift in Sources */,
 				CAE6D9CB2CD05B65000A929C /* Person.swift in Sources */,
 				CAC47B312C8CD8F1008AF768 /* CampPhaseTutorial.swift in Sources */,
-				CAE6D9D22CD05E6F000A929C /* OutsideView.swift in Sources */,
-				CAC47B322C8CD8F1008AF768 /* OutsidePhaseTutorial.swift in Sources */,
+				CAE6D9D22CD05E6F000A929C /* AdventureView.swift in Sources */,
+				CAC47B322C8CD8F1008AF768 /* AdventuringTutorial.swift in Sources */,
 				CAC47B302C8CD8F1008AF768 /* BuildTutorial.swift in Sources */,
 				CAC47B332C8CD8F1008AF768 /* firstTutorialExit.swift in Sources */,
 				CA0BC1DC2CC17688008240E0 /* Camp.swift in Sources */,

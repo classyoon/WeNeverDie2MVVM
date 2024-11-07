@@ -6,7 +6,8 @@
 //
 import Foundation
 struct CampModel {
-    var workables : [any Workable] = workablesExample
+    var workables : [any Workable] = [GoingScavenging(), WorkingAtWorkshop()]
+    var onGoingProjects : [any Completable] = [BuildingWorkshop()]
     var people : [Person] = Person.example
     func canLeave()->Bool{
         for person in people {
@@ -39,5 +40,11 @@ struct CampModel {
             }
         }
     }
+    func updateBuilds(){
+        for building in onGoingProjects {
+            for person in building.people {
+             //   building.moveProgress()
+            }
+        }
+    }
 }
-let workablesExample : [any Workable] = [GoingScavenging(), BuildingWorkshop(), WorkingAtWorkshop()]

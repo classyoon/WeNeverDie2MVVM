@@ -23,10 +23,10 @@ class TestingApparatus {
     func testOutsideGeneration(){
         let game = GameModel()
         let campVM = CampViewModel(model: game.campModel)
-        let outsideVM = OutsideViewModel(model: game.outsideModel)
+        let outsideVM = AdventureViewModel(model: game.outsideModel)
         campVM.workablesVM[0].setPerson(Person())
         campVM.confirm()
-        game.outsideModel = game.setOutside()
+        game.outsideModel = game.goAdventure()
         #expect(outsideVM.people.isEmpty == false, "A person was sucessfully transported")
     }
     @Test("Screen Change Routine")
@@ -35,23 +35,23 @@ class TestingApparatus {
         let vm = ViewDirectorVM(model: game.viewDirector)
         
         #expect(game.viewDirector.currentScreen == .campTutorial, "Player starts in Camp Tutorial")
-        #expect(vm.showOutsideTutorial() == false, "Tutorial should not be in outside mode.")
+        #expect(vm.showOutsideTutorial() == false, "Tutorial should not be in adventure mode.")
         #expect(vm.showScreen == .tutorial && vm.shouldShowSkip(), "Start on Tutorial View")
         vm.skipTutorial()
         
         #expect(game.viewDirector.currentScreen == .camp && vm.showScreen == .camp, "Player enters camp")
         
-        vm.swapToOutsideView()
-        #expect(game.viewDirector.currentScreen == .outsideTutorial, "Player leaves camp and enters outside tutorial")
-        #expect(vm.showOutsideTutorial() == true, "Tutorial should be in outside mode.")
+        vm.swapToAdventureView()
+        #expect(game.viewDirector.currentScreen == .adventuringTutorial, "Player leaves camp and enters adventure tutorial")
+        #expect(vm.showOutsideTutorial() == true, "Tutorial should be in adventure mode.")
         #expect(vm.showScreen == .tutorial && vm.shouldShowSkip(), "Return to Tutorial View")
         
         vm.skipTutorial()
-        #expect(game.viewDirector.currentScreen == .outside && vm.showScreen == .outside, "Player exits outside tutorial")
+        #expect(game.viewDirector.currentScreen == .adventure && vm.showScreen == .adventure, "Player exits adventure tutorial")
         vm.enterTutorialView()
-        #expect(game.viewDirector.currentScreen == .outsideTutorial, "The tutorial should be the outside tutorial.")
+        #expect(game.viewDirector.currentScreen == .adventuringTutorial, "The tutorial should be the adventure tutorial.")
         
-        vm.leaveOutsideView()
+        vm.leaveAdventureView()
         #expect(game.viewDirector.currentScreen == .camp && vm.showScreen == .camp, "Player returns to camp")
         #expect(vm.shouldShowSkip() == false, "Tutorial view should no longer have skip button")
         vm.enterTutorialView()
@@ -59,8 +59,8 @@ class TestingApparatus {
     }
     @Test("Testing death")
     func testDeath(){
-        let model = OutsideModel(people: [Person("Bob")])
-        let outsideVM = OutsideViewModel(model: model)
+        let model = AdventureModel(people: [Person("Bob")])
+        let outsideVM = AdventureViewModel(model: model)
         
         outsideVM.killPerson()
         #expect(outsideVM.people[0].vitality == .killed)
@@ -70,20 +70,21 @@ class TestingApparatus {
     @Test("Testing funeral")
     func testBurial(){
         let game = GameModel()
-        let outsideVM = OutsideViewModel(model: game.outsideModel)
+        let outsideVM = AdventureViewModel(model: game.outsideModel)
         let campVm = CampViewModel(model: game.campModel)
         let goingOutside = WorkableVM(model: game.campModel.workables[0])
-        
-
-        
         goingOutside.setPerson(game.campModel.people[0])
         goingOutside.confirm()
-        game.outsideModel = game.setOutside()
-//        #expect(outsideVM.people.count == 1)
+        game.outsideModel = game.goAdventure()
         outsideVM.killPerson()
         #expect(outsideVM.people[0].vitality == .killed)
         outsideVM.exit()
         #expect(game.outsideModel.people[0].vitality == .killed)
+        
+        game.campModel = game.setCamp()
+        #expect(game.campModel.people[0].vitality == .killed)
+        
+    
     }
   
 }

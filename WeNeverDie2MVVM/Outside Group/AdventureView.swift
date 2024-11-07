@@ -1,5 +1,5 @@
 //
-//  OutsideView.swift
+//  AdventureView.swift
 //  WeNeverDie2MVVM
 //
 //  Created by Conner Yoon on 10/28/24.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct OutsideView: View {
+struct AdventureView: View {
     @EnvironmentObject var viewDirector : ViewDirectorVM
-    @ObservedObject var vm : OutsideViewModel
+    @ObservedObject var vm : AdventureViewModel
     var body: some View {
         VStack{
             Text("Out")
             Button("Move"){
-                viewDirector.leaveOutsideView()
+                viewDirector.leaveAdventureView()
                 vm.exit()
             }
             ForEach(vm.people){ person in
@@ -32,11 +32,11 @@ struct OutsideView: View {
 }
 
 #Preview {
-    OutsideView(vm: OutsideViewModel(model: OutsideModel())).environmentObject(ViewDirectorVM())
+    AdventureView(vm: AdventureViewModel(model: AdventureModel())).environmentObject(ViewDirectorVM())
 }
 
 
-class OutsideModel {
+class AdventureModel  {
     var people : [Person]
     init(people: [Person] = Person.example) {
         self.people = people
@@ -65,10 +65,10 @@ class OutsideModel {
     }
 }
 
-class OutsideViewModel : ObservableObject {
-    var model : OutsideModel
+class AdventureViewModel : ObservableObject {
+    var model : AdventureModel
     @Published var people : [Person]
-    init(model: OutsideModel = OutsideModel(), people : [Person] = Person.example) {
+    init(model: AdventureModel = AdventureModel(), people : [Person] = Person.example) {
         self.model = model
         self.people = model.getPeople()
     }

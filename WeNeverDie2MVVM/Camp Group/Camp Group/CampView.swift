@@ -17,9 +17,9 @@ struct CampView: View {
                 Text("\(workable.getName())")
                 WorkableView(vm: workable).environmentObject(vm)
             }
-            Button(vm.canLeave ? "Head to outside" : "Wait next day"){
+            Button(vm.canLeave ? "Head to adventure" : "Wait next day"){
                 if vm.canLeave {
-                    viewDirector.swapToOutsideView()
+                    viewDirector.swapToAdventureView()
                     vm.confirm()
                 }
             }

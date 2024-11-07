@@ -14,7 +14,7 @@ class ViewDirectorVM : ObservableObject {
         showScreen = model.getShowScreen()
     }
     func showOutsideTutorial()-> Bool{
-        return model.shouldShowOutsideTutorial()
+        return model.shouldShowAdventuringTutorial()
     }
     func shouldShowSkip()->Bool {
         return model.shouldShowSkip()
@@ -26,12 +26,12 @@ class ViewDirectorVM : ObservableObject {
         showScreen = .tutorial
         model.setWhichTutorial()
     }
-    func swapToOutsideView(){
-        model.setToOutside()
+    func swapToAdventureView(){
+        model.goAdventuring()
         showScreen = model.getShowScreen()
     }
-    func leaveOutsideView(){
-        model.exitOutsideView()
+    func leaveAdventureView(){
+        model.returnFromAdventure()
         showScreen = model.getShowScreen()
     }
     
@@ -51,49 +51,49 @@ class ViewDirectorVM : ObservableObject {
 }
 
 enum IntendedView : Codable {
-    case outsideTutorial, campTutorial, outside, camp
+    case adventuringTutorial, campTutorial, adventure, camp
 }
 enum ShowScreen {
-    case tutorial, outside, camp
+    case tutorial, adventure, camp
 }
 
 class VisualDirector {
-    private var isInMission : Bool
+    private var isAdventuring : Bool
     private var seenCampTutorial : Bool
-    private var seenOutTutorial : Bool
+    private var seenAdventureTutorial : Bool
     private var showTutorialSeq : Bool = false
     var currentScreen : IntendedView
-    init(isInMission: Bool = false, seenCampTutorial: Bool = false, seenOutTutorial: Bool = false, currentScreen: IntendedView = .campTutorial) {
-        self.isInMission = isInMission
+    init(isInMission: Bool = false, seenCampTutorial: Bool = false, seenAdventureTutorial: Bool = false, currentScreen: IntendedView = .campTutorial) {
+        self.isAdventuring = isInMission
         self.seenCampTutorial = seenCampTutorial
-        self.seenOutTutorial = seenOutTutorial
+        self.seenAdventureTutorial = seenAdventureTutorial
         self.currentScreen = currentScreen
         if showTutorialSeq == false {
-            self.seenOutTutorial = true
+            self.seenAdventureTutorial = true
             self.seenCampTutorial = true
             self.currentScreen = .camp
         }
+        findPriorityView()
     }
-    
     func setWhichTutorial(){
-        if isInMission {
-            currentScreen = .outsideTutorial
+        if isAdventuring {
+            currentScreen = .adventuringTutorial
         }else{
             currentScreen = .campTutorial
         }
     }
 
     private func findPriorityView() {
-        if isInMission {
-            currentScreen = seenOutTutorial ? .outside : .outsideTutorial
+        if isAdventuring {
+            currentScreen = seenAdventureTutorial ? .adventure : .adventuringTutorial
         } else {
             currentScreen = seenCampTutorial ? .camp : .campTutorial
         }
     }
 
     
-    func shouldShowOutsideTutorial()->Bool{
-        if currentScreen == .outsideTutorial  {
+    func shouldShowAdventuringTutorial()->Bool{
+        if currentScreen == .adventuringTutorial  {
             return true
         }
         return false
@@ -102,19 +102,19 @@ class VisualDirector {
         findPriorityView()
         
         switch currentScreen {
-        case .outsideTutorial:
+        case .adventuringTutorial:
             return .tutorial
         case .campTutorial:
             return .tutorial
-        case .outside:
-            return .outside
+        case .adventure:
+            return .adventure
         case .camp:
             return .camp
         }
     }
     
     func shouldShowSkip()->Bool {
-        if (currentScreen == .campTutorial && !seenCampTutorial || currentScreen == .outsideTutorial && !seenOutTutorial){
+        if (currentScreen == .campTutorial && !seenCampTutorial || currentScreen == .adventuringTutorial && !seenAdventureTutorial){
             return true
         }
         return false
@@ -123,13 +123,13 @@ class VisualDirector {
         if  currentScreen == .campTutorial {
             seenCampTutorial = true
         }else {
-            seenOutTutorial = true
+            seenAdventureTutorial = true
         }
     }
-    func setToOutside(){
-        isInMission = true
+    func goAdventuring(){
+        isAdventuring = true
     }
-    func exitOutsideView(){
-        isInMission = false
+    func returnFromAdventure(){
+        isAdventuring = false
     }
 }

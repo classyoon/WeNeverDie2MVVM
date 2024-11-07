@@ -6,17 +6,17 @@
 //
 
 import Foundation
-class GameModel : ObservableObject {
+class GameModel  : ObservableObject {
     var viewDirector = VisualDirector()
-    var outsideModel = OutsideModel()
+    var outsideModel = AdventureModel()
     var campModel = CampModel()
     var people : [Person] = Person.example
-    var projects : [any Workable] = workablesExample
+    var projects : [any Workable] = [GoingScavenging(), WorkingAtWorkshop(), BuildingWorkshop()]
     
     func setCamp()->CampModel{
         CampModel(workables: projects, people: people+outsideModel.exit())
     }
-    func setOutside()->OutsideModel{
-        OutsideModel(people: campModel.getLeavers())
+    func goAdventure()->AdventureModel{
+        AdventureModel(people: campModel.getLeavers())
     }
 }

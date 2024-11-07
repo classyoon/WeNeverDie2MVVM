@@ -15,8 +15,8 @@ struct GameView: View {
             switch vm.showScreen {
             case .tutorial :
                 TutorialView()
-            case .outside:
-                OutsideView(vm: OutsideViewModel(model: game.setOutside()))
+            case .adventure:
+                AdventureView(vm: AdventureViewModel(model: game.goAdventure()))
             case .camp:
                 CampView(vm: CampViewModel(model: game.setCamp()))
             }
