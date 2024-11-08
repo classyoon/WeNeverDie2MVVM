@@ -7,7 +7,7 @@
 import SwiftUI
 import Foundation
 struct CampView: View {
-    @EnvironmentObject var viewDirector : ViewDirectorVM
+    @EnvironmentObject var viewDirector : ViewDecider
     @ObservedObject var vm : CampViewModel
     
     var body: some View {
@@ -19,12 +19,12 @@ struct CampView: View {
             }
             Button(vm.canLeave ? "Head to adventure" : "Wait next day"){
                 if vm.canLeave {
-                    viewDirector.swapToAdventureView()
+                    viewDirector.goAdventuring()
                     vm.confirm()
                 }
             }
             Button("Tutorial"){
-                viewDirector.enterTutorialView()
+                viewDirector.enterTutorial()
             }
             
         }.overlay{
@@ -44,5 +44,5 @@ struct CampView: View {
 
 
 #Preview {
-    GameView(vm: ViewDirectorVM(showScreen: .camp)).environmentObject(GameModel())
+    GameView(vm: ViewDecider()).environmentObject(GameModel())
 }

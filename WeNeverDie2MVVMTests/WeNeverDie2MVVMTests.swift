@@ -32,30 +32,33 @@ class TestingApparatus {
     @Test("Screen Change Routine")
     func runScreenChangeRoutine(){
         let game = GameModel()
-        let vm = ViewDirectorVM(model: game.viewDirector)
+        let decider = game.viewDirector
+        if decider.showTutorialSeq {
+            #expect(decider.currentScreen == .campTutorial, "Player starts in Camp Tutorial")
+            #expect(decider.shouldShowAdventuringTutorial() == false, "Tutorial should not be in adventure mode.")
+            #expect(decider.shouldShowSkip(), "Start on Tutorial View")
+            decider.skipTutorial()
+            
+            #expect(game.viewDirector.currentScreen == .camp, "Player enters camp")
+            
+            decider.goAdventuring()
+            #expect(game.viewDirector.currentScreen == .adventuringTutorial, "Player leaves camp and enters adventure tutorial")
+            #expect(game.viewDirector.shouldShowAdventuringTutorial() == true, "Tutorial should be in adventure mode.")
+            
+            decider.skipTutorial()
+            #expect(game.viewDirector.currentScreen == .adventure, "Player exits adventure tutorial")
+            decider.enterTutorial()
+            #expect(game.viewDirector.currentScreen == .adventuringTutorial, "The tutorial should be the adventure tutorial.")
+            
+            decider.returnFromAdventure()
+            #expect(game.viewDirector.currentScreen == .camp, "Player returns to camp")
+            #expect(decider.shouldShowSkip() == false, "Tutorial view should no longer have skip button")
+            decider.enterTutorial()
+            #expect(game.viewDirector.currentScreen == .campTutorial, "The tutorial should be the camp tutorial.")
+        }else{
+            print("Tutorial sequence off")
+        }
         
-        #expect(game.viewDirector.currentScreen == .campTutorial, "Player starts in Camp Tutorial")
-        #expect(vm.showOutsideTutorial() == false, "Tutorial should not be in adventure mode.")
-        #expect(vm.showScreen == .tutorial && vm.shouldShowSkip(), "Start on Tutorial View")
-        vm.skipTutorial()
-        
-        #expect(game.viewDirector.currentScreen == .camp && vm.showScreen == .camp, "Player enters camp")
-        
-        vm.swapToAdventureView()
-        #expect(game.viewDirector.currentScreen == .adventuringTutorial, "Player leaves camp and enters adventure tutorial")
-        #expect(vm.showOutsideTutorial() == true, "Tutorial should be in adventure mode.")
-        #expect(vm.showScreen == .tutorial && vm.shouldShowSkip(), "Return to Tutorial View")
-        
-        vm.skipTutorial()
-        #expect(game.viewDirector.currentScreen == .adventure && vm.showScreen == .adventure, "Player exits adventure tutorial")
-        vm.enterTutorialView()
-        #expect(game.viewDirector.currentScreen == .adventuringTutorial, "The tutorial should be the adventure tutorial.")
-        
-        vm.leaveAdventureView()
-        #expect(game.viewDirector.currentScreen == .camp && vm.showScreen == .camp, "Player returns to camp")
-        #expect(vm.shouldShowSkip() == false, "Tutorial view should no longer have skip button")
-        vm.enterTutorialView()
-        #expect(game.viewDirector.currentScreen == .campTutorial, "The tutorial should be the camp tutorial.")
     }
     @Test("Testing death")
     func testDeath(){

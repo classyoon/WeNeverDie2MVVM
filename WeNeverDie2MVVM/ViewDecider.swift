@@ -1,68 +1,23 @@
 //
-//  ViewDirector.swift
+//  ViewDecider.swift
 //  WeNeverDie2MVVM
 //
 //  Created by Conner Yoon on 9/7/24.
 //
 
 import Foundation
-class ViewDirectorVM : ObservableObject {
-    var model : VisualDirector
-    @Published var showScreen : ShowScreen
-    func skipTutorial(){
-        model.skipTutorial()
-        showScreen = model.getShowScreen()
-    }
-    func showOutsideTutorial()-> Bool{
-        return model.shouldShowAdventuringTutorial()
-    }
-    func shouldShowSkip()->Bool {
-        return model.shouldShowSkip()
-    }
-    func returnView(){
-        showScreen = model.getShowScreen()
-    }
-    func enterTutorialView(){
-        showScreen = .tutorial
-        model.setWhichTutorial()
-    }
-    func swapToAdventureView(){
-        model.goAdventuring()
-        showScreen = model.getShowScreen()
-    }
-    func leaveAdventureView(){
-        model.returnFromAdventure()
-        showScreen = model.getShowScreen()
-    }
-    
-    init(model: VisualDirector) {
-        self.model = model
-        self.showScreen = model.getShowScreen()
-    }
-    
-    init(showScreen : ShowScreen){
-        self.model = VisualDirector()
-        self.showScreen = showScreen
-    }
-    init(){
-        self.model = VisualDirector()
-        self.showScreen = model.getShowScreen()
-    }
-}
+
 
 enum IntendedView : Codable {
     case adventuringTutorial, campTutorial, adventure, camp
 }
-enum ShowScreen {
-    case tutorial, adventure, camp
-}
 
-class VisualDirector {
+class ViewDecider : ObservableObject {
     private var isAdventuring : Bool
     private var seenCampTutorial : Bool
     private var seenAdventureTutorial : Bool
-    private var showTutorialSeq : Bool = false
-    var currentScreen : IntendedView
+    var showTutorialSeq : Bool = true
+    @Published var currentScreen : IntendedView
     init(isInMission: Bool = false, seenCampTutorial: Bool = false, seenAdventureTutorial: Bool = false, currentScreen: IntendedView = .campTutorial) {
         self.isAdventuring = isInMission
         self.seenCampTutorial = seenCampTutorial
@@ -75,7 +30,7 @@ class VisualDirector {
         }
         findPriorityView()
     }
-    func setWhichTutorial(){
+    func enterTutorial(){
         if isAdventuring {
             currentScreen = .adventuringTutorial
         }else{
@@ -98,20 +53,6 @@ class VisualDirector {
         }
         return false
     }
-    func getShowScreen()->ShowScreen{
-        findPriorityView()
-        
-        switch currentScreen {
-        case .adventuringTutorial:
-            return .tutorial
-        case .campTutorial:
-            return .tutorial
-        case .adventure:
-            return .adventure
-        case .camp:
-            return .camp
-        }
-    }
     
     func shouldShowSkip()->Bool {
         if (currentScreen == .campTutorial && !seenCampTutorial || currentScreen == .adventuringTutorial && !seenAdventureTutorial){
@@ -125,11 +66,14 @@ class VisualDirector {
         }else {
             seenAdventureTutorial = true
         }
+        findPriorityView()
     }
     func goAdventuring(){
         isAdventuring = true
+        findPriorityView()
     }
     func returnFromAdventure(){
         isAdventuring = false
+        findPriorityView()
     }
 }

@@ -13,7 +13,7 @@ struct WeNeverDie2MVVMApp: App {
     @StateObject var game : GameModel = GameModel()
     var body: some Scene {
         WindowGroup{
-            GameView(vm : ViewDirectorVM(model: game.viewDirector))
+            GameView(vm : game.viewDirector)
         }.environmentObject(game)
     }
 }

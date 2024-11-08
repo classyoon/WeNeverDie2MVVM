@@ -14,7 +14,7 @@
 		CAC47B0B2C8CD76F008AF768 /* WeNeverDie2MVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B0A2C8CD76F008AF768 /* WeNeverDie2MVVMTests.swift */; };
 		CAC47B152C8CD76F008AF768 /* WeNeverDie2MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B142C8CD76F008AF768 /* WeNeverDie2MVVMUITests.swift */; };
 		CAC47B172C8CD76F008AF768 /* WeNeverDie2MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B162C8CD76F008AF768 /* WeNeverDie2MVVMUITestsLaunchTests.swift */; };
-		CAC47B242C8CD7B8008AF768 /* ViewDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B232C8CD7B8008AF768 /* ViewDirector.swift */; };
+		CAC47B242C8CD7B8008AF768 /* ViewDecider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B232C8CD7B8008AF768 /* ViewDecider.swift */; };
 		CAC47B262C8CD825008AF768 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B252C8CD825008AF768 /* GameView.swift */; };
 		CAC47B302C8CD8F1008AF768 /* BuildTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B272C8CD8F1008AF768 /* BuildTutorial.swift */; };
 		CAC47B312C8CD8F1008AF768 /* CampPhaseTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B282C8CD8F1008AF768 /* CampPhaseTutorial.swift */; };
@@ -60,7 +60,6 @@
 		CAC47B982C8CD9B4008AF768 /* WaterWalk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B5E2C8CD9B4008AF768 /* WaterWalk.mp3 */; };
 		CAC47B992C8CD9B4008AF768 /* Wet EatingVol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B5F2C8CD9B4008AF768 /* Wet EatingVol.mp3 */; };
 		CAC47BA72C8CD9B4008AF768 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B722C8CD9B4008AF768 /* AudioManager.swift */; };
-		CAC47C682C8CDBDB008AF768 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47C672C8CDBDB008AF768 /* Tile.swift */; };
 		CAC47C6A2C8CDBF9008AF768 /* Coord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47C692C8CDBF9008AF768 /* Coord.swift */; };
 		CAC5B6502CC86126004ED5AC /* CampVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5B64F2CC86126004ED5AC /* CampVM.swift */; };
 		CAC5B6532CC86141004ED5AC /* CampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5B6522CC86141004ED5AC /* CampView.swift */; };
@@ -100,7 +99,7 @@
 		CAC47B102C8CD76F008AF768 /* WeNeverDie2MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeNeverDie2MVVMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC47B142C8CD76F008AF768 /* WeNeverDie2MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeNeverDie2MVVMUITests.swift; sourceTree = "<group>"; };
 		CAC47B162C8CD76F008AF768 /* WeNeverDie2MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeNeverDie2MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CAC47B232C8CD7B8008AF768 /* ViewDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDirector.swift; sourceTree = "<group>"; };
+		CAC47B232C8CD7B8008AF768 /* ViewDecider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDecider.swift; sourceTree = "<group>"; };
 		CAC47B252C8CD825008AF768 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		CAC47B272C8CD8F1008AF768 /* BuildTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildTutorial.swift; sourceTree = "<group>"; };
 		CAC47B282C8CD8F1008AF768 /* CampPhaseTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampPhaseTutorial.swift; sourceTree = "<group>"; };
@@ -146,7 +145,6 @@
 		CAC47B5E2C8CD9B4008AF768 /* WaterWalk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WaterWalk.mp3; sourceTree = "<group>"; };
 		CAC47B5F2C8CD9B4008AF768 /* Wet EatingVol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Wet EatingVol.mp3"; sourceTree = "<group>"; };
 		CAC47B722C8CD9B4008AF768 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
-		CAC47C672C8CDBDB008AF768 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		CAC47C692C8CDBF9008AF768 /* Coord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coord.swift; sourceTree = "<group>"; };
 		CAC5B64F2CC86126004ED5AC /* CampVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampVM.swift; sourceTree = "<group>"; };
 		CAC5B6522CC86141004ED5AC /* CampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampView.swift; sourceTree = "<group>"; };
@@ -211,10 +209,9 @@
 				CAC47B252C8CD825008AF768 /* GameView.swift */,
 				CAE6D9D02CD05E55000A929C /* Outside Group */,
 				CAC5B6512CC8612D004ED5AC /* Camp Group */,
-				CAC47B232C8CD7B8008AF768 /* ViewDirector.swift */,
+				CAC47B232C8CD7B8008AF768 /* ViewDecider.swift */,
 				CAE6D9D32CD0643D000A929C /* GameData.swift */,
 				CAC47C692C8CDBF9008AF768 /* Coord.swift */,
-				CAC47C672C8CDBDB008AF768 /* Tile.swift */,
 				CAC47B2F2C8CD8F1008AF768 /* Tutorial */,
 				CAC47AFD2C8CD76F008AF768 /* Assets.xcassets */,
 				CAC47AFF2C8CD76F008AF768 /* Preview Content */,
@@ -558,7 +555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC47B242C8CD7B8008AF768 /* ViewDirector.swift in Sources */,
+				CAC47B242C8CD7B8008AF768 /* ViewDecider.swift in Sources */,
 				CAC5B6552CC86152004ED5AC /* CampTasks.swift in Sources */,
 				CAC47B262C8CD825008AF768 /* GameView.swift in Sources */,
 				CAC47B352C8CD8F1008AF768 /* TutorialView.swift in Sources */,
@@ -575,7 +572,6 @@
 				CAC5B6532CC86141004ED5AC /* CampView.swift in Sources */,
 				CAC47BA72C8CD9B4008AF768 /* AudioManager.swift in Sources */,
 				CAC47C6A2C8CDBF9008AF768 /* Coord.swift in Sources */,
-				CAC47C682C8CDBDB008AF768 /* Tile.swift in Sources */,
 				CAE6D9CD2CD05C1D000A929C /* Workable.swift in Sources */,
 				CAC47AF82C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift in Sources */,
 				CAC5B6502CC86126004ED5AC /* CampVM.swift in Sources */,

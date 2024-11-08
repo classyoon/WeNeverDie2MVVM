@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct firstTutorialExit: View {
-    @EnvironmentObject var vm : ViewDirectorVM
+    @EnvironmentObject var vm : ViewDecider
 
     var body: some View {
-        Button(!vm.showOutsideTutorial() ? "Begin Game" : "Begin Exploring"){
+        Button(!vm.shouldShowAdventuringTutorial() ? "Begin Game" : "Begin Exploring"){
             vm.skipTutorial()
         }.buttonStyle(.bordered)
             .padding()
@@ -20,6 +20,6 @@ struct firstTutorialExit: View {
 
 struct firstTutorialExit_Previews: PreviewProvider {
     static var previews: some View {
-        firstTutorialExit().environmentObject(ViewDirectorVM())
+        firstTutorialExit().environmentObject(ViewDecider())
     }
 }

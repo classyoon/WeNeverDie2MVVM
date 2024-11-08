@@ -7,7 +7,7 @@
 
 import Foundation
 class GameModel  : ObservableObject {
-    var viewDirector = VisualDirector()
+    var viewDirector = ViewDecider()
     var outsideModel = AdventureModel()
     var campModel = CampModel()
     var people : [Person] = Person.example

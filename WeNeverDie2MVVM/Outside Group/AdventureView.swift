@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct AdventureView: View {
-    @EnvironmentObject var viewDirector : ViewDirectorVM
+    @EnvironmentObject var viewDirector : ViewDecider
     @ObservedObject var vm : AdventureViewModel
     var body: some View {
         VStack{
             Text("Out")
             Button("Move"){
-                viewDirector.leaveAdventureView()
+                viewDirector.returnFromAdventure()
                 vm.exit()
             }
             ForEach(vm.people){ person in
@@ -24,7 +24,7 @@ struct AdventureView: View {
                 vm.killPerson()
             }
             Button("Tutorial"){
-                viewDirector.enterTutorialView()
+                viewDirector.enterTutorial()
             }
         }
 
@@ -32,7 +32,7 @@ struct AdventureView: View {
 }
 
 #Preview {
-    AdventureView(vm: AdventureViewModel(model: AdventureModel())).environmentObject(ViewDirectorVM())
+    AdventureView(vm: AdventureViewModel(model: AdventureModel())).environmentObject(ViewDecider())
 }
 
 

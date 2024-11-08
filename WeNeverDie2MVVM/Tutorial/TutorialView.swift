@@ -11,12 +11,12 @@ import SwiftUI
  Needs GameManager to tell if isAdventuring
  */
 struct FirstExit : View {
-    @EnvironmentObject var vm : ViewDirectorVM
+    @EnvironmentObject var vm : ViewDecider
     var body: some View {
         VStack{
             HStack{
                 Button("Return"){
-                    vm.returnView()
+                    vm.skipTutorial()
                 }.buttonStyle(.bordered)
             }
         }.padding()
@@ -25,7 +25,7 @@ struct FirstExit : View {
 
 struct TutorialView: View {
     @State var largeText = false
-    @EnvironmentObject var vm : ViewDirectorVM
+    @EnvironmentObject var vm : ViewDecider
     
     var textSizeButton : some View {
         Button("Toggle Text Enlargement") {
@@ -61,7 +61,7 @@ struct TutorialView: View {
                     firstExit
                     firstSkip//Show skip if the player hasn't viewed camp tutorial or hasn't viewed adventure tutorial while in a mission.
                 }
-                if vm.showOutsideTutorial() == false {
+                if vm.shouldShowAdventuringTutorial() == false {
                     CampPhaseTutorial()
                 }else  {
                     AdventuringTutorial()
@@ -74,14 +74,14 @@ struct TutorialView: View {
                 !vm.shouldShowSkip() ? Link("Like this game, have suggestions, have bugs? Join the discord", destination: URL(string: "https://discord.gg/ZbAMAjfghk")!).font(.title) : nil
             }
             .textSelection(.enabled)
-                .font(largeText ? .title2 : .body).padding().navigationTitle(vm.showOutsideTutorial() ? "Outside Tutorial" : "Camp Tutorial")
+            .font(largeText ? .title2 : .body).padding().navigationTitle(vm.shouldShowAdventuringTutorial() ? "Outside Tutorial" : "Camp Tutorial")
         }
     }
     
 }
     struct TutorialView_Previews: PreviewProvider {
         static var previews: some View {
-            TutorialView().environmentObject(ViewDirectorVM())
+            TutorialView().environmentObject(ViewDecider())
         }
     }
     

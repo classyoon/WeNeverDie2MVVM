@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct GameView: View {
-    @ObservedObject var vm : ViewDirectorVM
+    @ObservedObject var vm : ViewDecider
     @EnvironmentObject var game : GameModel
     var body: some View {
         VStack {
-            switch vm.showScreen {
-            case .tutorial :
+            switch vm.currentScreen {
+            case .campTutorial, .adventuringTutorial :
                 TutorialView()
             case .adventure:
                 AdventureView(vm: AdventureViewModel(model: game.goAdventure()))
@@ -26,6 +26,6 @@ struct GameView: View {
 
 var testGame : GameModel = GameModel()
 #Preview {
-    GameView(vm : ViewDirectorVM(model: testGame.viewDirector)).environmentObject(testGame)
+    GameView(vm : testGame.viewDirector ).environmentObject(testGame)
 }
 
