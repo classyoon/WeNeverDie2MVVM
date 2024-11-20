@@ -11,8 +11,8 @@ import Testing
 class TestingApparatus {
     @Test("Selector Test", arguments: [0,1,2])
     func testSelectorTap(at : Int){
-        let game = GameModel()
-        let campVM = CampViewModel(model: game.campModel)
+        let game = UniversalMaster()
+        let campVM = CampViewModel(model: game.camp)
         #expect(campVM.canLeave == false, "When nobody wants to leave")
         let workVM : WorkableVM = campVM.workablesVM[0]
         workVM.setPerson(workVM.people[at])
@@ -21,41 +21,44 @@ class TestingApparatus {
     }
     @Test("Outside Move Test")
     func testOutsideGeneration(){
-        let game = GameModel()
-        let campVM = CampViewModel(model: game.campModel)
-        let outsideVM = AdventureViewModel(model: game.outsideModel)
+        let game = UniversalMaster()
+        let campVM = CampViewModel(model: game.camp)
+        let outsideVM = AdventureViewModel(model: game.adventure)
         campVM.workablesVM[0].setPerson(Person())
         campVM.confirm()
-        game.outsideModel = game.goAdventure()
+        game.adventure = game.getUpdatedAdventure()
         #expect(outsideVM.people.isEmpty == false, "A person was sucessfully transported")
     }
     @Test("Screen Change Routine")
     func runScreenChangeRoutine(){
-        let game = GameModel()
-        let decider = game.viewDirector
-        if decider.showTutorialSeq {
-            #expect(decider.currentScreen == .campTutorial, "Player starts in Camp Tutorial")
-            #expect(decider.shouldShowAdventuringTutorial() == false, "Tutorial should not be in adventure mode.")
+        let game = UniversalMaster()
+        let decider = game.viewPicker
+        if decider.requireTutorial && decider.willSaveAndLoad == false{
+            #expect(decider.chosenScreen == .campTutorial, "Player starts in Camp Tutorial")
+            #expect(decider.showAdventureTutorial() == false, "Tutorial should not be in adventure mode.")
             #expect(decider.shouldShowSkip(), "Start on Tutorial View")
             decider.skipTutorial()
             
-            #expect(game.viewDirector.currentScreen == .camp, "Player enters camp")
+            #expect(game.viewPicker.chosenScreen == .camp, "Player enters camp")
             
             decider.goAdventuring()
-            #expect(game.viewDirector.currentScreen == .adventuringTutorial, "Player leaves camp and enters adventure tutorial")
-            #expect(game.viewDirector.shouldShowAdventuringTutorial() == true, "Tutorial should be in adventure mode.")
+            #expect(game.viewPicker.chosenScreen == .adventuringTutorial, "Player leaves camp and enters adventure tutorial")
+            #expect(game.viewPicker.showAdventureTutorial() == true, "Tutorial should be in adventure mode.")
             
             decider.skipTutorial()
-            #expect(game.viewDirector.currentScreen == .adventure, "Player exits adventure tutorial")
+            #expect(game.viewPicker.chosenScreen == .adventure, "Player exits adventure tutorial")
             decider.enterTutorial()
-            #expect(game.viewDirector.currentScreen == .adventuringTutorial, "The tutorial should be the adventure tutorial.")
+            #expect(game.viewPicker.chosenScreen == .adventuringTutorial, "The tutorial should be the adventure tutorial.")
             
             decider.returnFromAdventure()
-            #expect(game.viewDirector.currentScreen == .camp, "Player returns to camp")
+            #expect(game.viewPicker.chosenScreen == .camp, "Player returns to camp")
             #expect(decider.shouldShowSkip() == false, "Tutorial view should no longer have skip button")
             decider.enterTutorial()
-            #expect(game.viewDirector.currentScreen == .campTutorial, "The tutorial should be the camp tutorial.")
-        }else{
+            #expect(game.viewPicker.chosenScreen == .campTutorial, "The tutorial should be the camp tutorial.")
+        }else if decider.requireTutorial == false{
+            #expect(decider.isAdventuring)
+            #expect(decider.seenAdventureTutorial)
+            #expect(decider.seenCampTutorial)
             print("Tutorial sequence off")
         }
         
@@ -68,24 +71,24 @@ class TestingApparatus {
         outsideVM.killPerson()
         #expect(outsideVM.people[0].vitality == .killed)
         outsideVM.exit()
-        #expect(model.people[0].vitality == .killed)
+        #expect(model.peopleInAdventure[0].vitality == .killed)
     }
     @Test("Testing funeral")
     func testBurial(){
-        let game = GameModel()
-        let outsideVM = AdventureViewModel(model: game.outsideModel)
-        let campVm = CampViewModel(model: game.campModel)
-        let goingOutside = WorkableVM(model: game.campModel.workables[0])
-        goingOutside.setPerson(game.campModel.people[0])
+        let game = UniversalMaster()
+        let outsideVM = AdventureViewModel(model: game.adventure)
+        let campVm = CampViewModel(model: game.camp)
+        let goingOutside = WorkableVM(model: game.camp.workables[0])
+        goingOutside.setPerson(game.camp.encampedCharacters[0])
         goingOutside.confirm()
-        game.outsideModel = game.goAdventure()
+        game.adventure = game.getUpdatedAdventure()
         outsideVM.killPerson()
         #expect(outsideVM.people[0].vitality == .killed)
         outsideVM.exit()
-        #expect(game.outsideModel.people[0].vitality == .killed)
+        #expect(game.adventure.peopleInAdventure[0].vitality == .killed)
         
-        game.campModel = game.setCamp()
-        #expect(game.campModel.people[0].vitality == .killed)
+        game.camp = game.getUpdatedCamp()
+        #expect(game.camp.encampedCharacters[0].vitality == .killed)
         
     
     }

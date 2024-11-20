@@ -7,7 +7,7 @@
 import SwiftUI
 import Foundation
 struct CampView: View {
-    @EnvironmentObject var viewDirector : ViewDecider
+    @EnvironmentObject var viewDirector : ViewPicker
     @ObservedObject var vm : CampViewModel
     
     var body: some View {
@@ -44,5 +44,5 @@ struct CampView: View {
 
 
 #Preview {
-    GameView(vm: ViewDecider()).environmentObject(GameModel())
+    GameView(viewPicker: ViewPicker()).environmentObject(UniversalMaster())
 }

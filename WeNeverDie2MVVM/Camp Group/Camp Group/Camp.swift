@@ -8,9 +8,9 @@ import Foundation
 struct CampModel {
     var workables : [any Workable] = [GoingScavenging(), WorkingAtWorkshop()]
     var onGoingProjects : [any Completable] = [BuildingWorkshop()]
-    var people : [Person] = Person.example
+    var encampedCharacters : [Person] = Person.example
     func canLeave()->Bool{
-        for person in people {
+        for person in encampedCharacters {
             guard person.activity == .goingOut else {
                 continue
             }
@@ -23,7 +23,7 @@ struct CampModel {
     }
     func getLeavers()->[Person]{
         var peopleLeaving : [Person] = []
-            for person in people {
+            for person in encampedCharacters {
                 guard person.activity == .goingOut else {
                     continue
                 }
@@ -32,19 +32,5 @@ struct CampModel {
             }
         
         return peopleLeaving
-    }
-    func updatePeople(){
-        for person in people {
-            if person.vitality == .killed{
-                print("Womp womp, \(person.name) died")
-            }
-        }
-    }
-    func updateBuilds(){
-        for building in onGoingProjects {
-            for person in building.people {
-             //   building.moveProgress()
-            }
-        }
     }
 }

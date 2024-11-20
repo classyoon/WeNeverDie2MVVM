@@ -8,24 +8,24 @@
 import SwiftUI
 
 struct GameView: View {
-    @ObservedObject var vm : ViewDecider
-    @EnvironmentObject var game : GameModel
+    @ObservedObject var viewPicker : ViewPicker
+    @EnvironmentObject var universalData : UniversalMaster
     var body: some View {
         VStack {
-            switch vm.currentScreen {
+            switch viewPicker.chosenScreen {
             case .campTutorial, .adventuringTutorial :
                 TutorialView()
             case .adventure:
-                AdventureView(vm: AdventureViewModel(model: game.goAdventure()))
+                AdventureView(vm: AdventureViewModel(model: universalData.getUpdatedAdventure()))
             case .camp:
-                CampView(vm: CampViewModel(model: game.setCamp()))
+                CampView(vm: CampViewModel(model: universalData.getUpdatedCamp()))
             }
-        }.environmentObject(vm)
+        }.environmentObject(viewPicker)
     }
 }
 
-var testGame : GameModel = GameModel()
+var testGame : UniversalMaster = UniversalMaster()
 #Preview {
-    GameView(vm : testGame.viewDirector ).environmentObject(testGame)
+    GameView(viewPicker : testGame.viewPicker ).environmentObject(testGame)
 }
 

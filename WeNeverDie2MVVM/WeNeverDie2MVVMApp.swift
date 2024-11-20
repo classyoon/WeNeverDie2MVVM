@@ -10,10 +10,10 @@ import SwiftData
 
 @main
 struct WeNeverDie2MVVMApp: App {
-    @StateObject var game : GameModel = GameModel()
+    @StateObject var game : UniversalMaster = UniversalMaster()
     var body: some Scene {
         WindowGroup{
-            GameView(vm : game.viewDirector)
+            GameView(viewPicker : game.viewPicker)
         }.environmentObject(game)
     }
 }

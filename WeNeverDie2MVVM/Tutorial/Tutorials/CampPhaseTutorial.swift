@@ -65,7 +65,7 @@ Once there tap the question mark to see the tutorial for there.
         VStack{
             Text("Making Progress").font(.title2)
             Text(buildButton)
-            HStack{
+            VStack{
                 
                 Image("Hammer").resizable().frame(width: 100, height: 100)
                 Image("Hammer Complete").resizable().frame(width: 100, height: 100)
