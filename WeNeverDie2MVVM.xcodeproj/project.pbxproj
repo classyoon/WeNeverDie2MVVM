@@ -8,19 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		CA0BC1DC2CC17688008240E0 /* Camp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0BC1DB2CC17688008240E0 /* Camp.swift */; };
+		CA66CE1F2CDEC263002B3A8D /* TutorialSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA66CE1E2CDEC263002B3A8D /* TutorialSectionView.swift */; };
+		CA66CE212CE2F8D7002B3A8D /* UniversalMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA66CE202CE2F8D7002B3A8D /* UniversalMaster.swift */; };
+		CAB5D4DC2CED148600D215B0 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5D4DB2CED148600D215B0 /* Testing.swift */; };
 		CAC47AF82C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47AF72C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift */; };
 		CAC47AFE2C8CD76F008AF768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC47AFD2C8CD76F008AF768 /* Assets.xcassets */; };
 		CAC47B012C8CD76F008AF768 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B002C8CD76F008AF768 /* Preview Assets.xcassets */; };
 		CAC47B0B2C8CD76F008AF768 /* WeNeverDie2MVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B0A2C8CD76F008AF768 /* WeNeverDie2MVVMTests.swift */; };
 		CAC47B152C8CD76F008AF768 /* WeNeverDie2MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B142C8CD76F008AF768 /* WeNeverDie2MVVMUITests.swift */; };
 		CAC47B172C8CD76F008AF768 /* WeNeverDie2MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B162C8CD76F008AF768 /* WeNeverDie2MVVMUITestsLaunchTests.swift */; };
-		CAC47B242C8CD7B8008AF768 /* ViewDecider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B232C8CD7B8008AF768 /* ViewDecider.swift */; };
+		CAC47B242C8CD7B8008AF768 /* ViewPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B232C8CD7B8008AF768 /* ViewPicker.swift */; };
 		CAC47B262C8CD825008AF768 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B252C8CD825008AF768 /* GameView.swift */; };
 		CAC47B302C8CD8F1008AF768 /* BuildTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B272C8CD8F1008AF768 /* BuildTutorial.swift */; };
 		CAC47B312C8CD8F1008AF768 /* CampPhaseTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B282C8CD8F1008AF768 /* CampPhaseTutorial.swift */; };
 		CAC47B322C8CD8F1008AF768 /* AdventuringTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B292C8CD8F1008AF768 /* AdventuringTutorial.swift */; };
-		CAC47B332C8CD8F1008AF768 /* firstTutorialExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B2B2C8CD8F1008AF768 /* firstTutorialExit.swift */; };
-		CAC47B342C8CD8F1008AF768 /* SkipTutorialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B2C2C8CD8F1008AF768 /* SkipTutorialButton.swift */; };
 		CAC47B352C8CD8F1008AF768 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47B2E2C8CD8F1008AF768 /* TutorialView.swift */; };
 		CAC47B742C8CD9B4008AF768 /* Kurt - Cheel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B362C8CD9B4008AF768 /* Kurt - Cheel.mp3 */; };
 		CAC47B752C8CD9B4008AF768 /* Rollin Through Osaka - MK2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAC47B372C8CD9B4008AF768 /* Rollin Through Osaka - MK2.mp3 */; };
@@ -68,7 +69,6 @@
 		CAE6D9CB2CD05B65000A929C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D9CA2CD05B65000A929C /* Person.swift */; };
 		CAE6D9CD2CD05C1D000A929C /* Workable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D9CC2CD05C1D000A929C /* Workable.swift */; };
 		CAE6D9D22CD05E6F000A929C /* AdventureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D9D12CD05E6F000A929C /* AdventureView.swift */; };
-		CAE6D9D42CD0643D000A929C /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D9D32CD0643D000A929C /* GameData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +90,9 @@
 
 /* Begin PBXFileReference section */
 		CA0BC1DB2CC17688008240E0 /* Camp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camp.swift; sourceTree = "<group>"; };
+		CA66CE1E2CDEC263002B3A8D /* TutorialSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSectionView.swift; sourceTree = "<group>"; };
+		CA66CE202CE2F8D7002B3A8D /* UniversalMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalMaster.swift; sourceTree = "<group>"; };
+		CAB5D4DB2CED148600D215B0 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		CAC47AF42C8CD76E008AF768 /* WeNeverDie2MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeNeverDie2MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC47AF72C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeNeverDie2MVVMApp.swift; sourceTree = "<group>"; };
 		CAC47AFD2C8CD76F008AF768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,13 +102,11 @@
 		CAC47B102C8CD76F008AF768 /* WeNeverDie2MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeNeverDie2MVVMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC47B142C8CD76F008AF768 /* WeNeverDie2MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeNeverDie2MVVMUITests.swift; sourceTree = "<group>"; };
 		CAC47B162C8CD76F008AF768 /* WeNeverDie2MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeNeverDie2MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CAC47B232C8CD7B8008AF768 /* ViewDecider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDecider.swift; sourceTree = "<group>"; };
+		CAC47B232C8CD7B8008AF768 /* ViewPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPicker.swift; sourceTree = "<group>"; };
 		CAC47B252C8CD825008AF768 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		CAC47B272C8CD8F1008AF768 /* BuildTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildTutorial.swift; sourceTree = "<group>"; };
 		CAC47B282C8CD8F1008AF768 /* CampPhaseTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampPhaseTutorial.swift; sourceTree = "<group>"; };
 		CAC47B292C8CD8F1008AF768 /* AdventuringTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuringTutorial.swift; sourceTree = "<group>"; };
-		CAC47B2B2C8CD8F1008AF768 /* firstTutorialExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstTutorialExit.swift; sourceTree = "<group>"; };
-		CAC47B2C2C8CD8F1008AF768 /* SkipTutorialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkipTutorialButton.swift; sourceTree = "<group>"; };
 		CAC47B2E2C8CD8F1008AF768 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		CAC47B362C8CD9B4008AF768 /* Kurt - Cheel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Kurt - Cheel.mp3"; sourceTree = "<group>"; };
 		CAC47B372C8CD9B4008AF768 /* Rollin Through Osaka - MK2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rollin Through Osaka - MK2.mp3"; sourceTree = "<group>"; };
@@ -153,7 +154,6 @@
 		CAE6D9CA2CD05B65000A929C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		CAE6D9CC2CD05C1D000A929C /* Workable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workable.swift; sourceTree = "<group>"; };
 		CAE6D9D12CD05E6F000A929C /* AdventureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureView.swift; sourceTree = "<group>"; };
-		CAE6D9D32CD0643D000A929C /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,8 +209,8 @@
 				CAC47B252C8CD825008AF768 /* GameView.swift */,
 				CAE6D9D02CD05E55000A929C /* Outside Group */,
 				CAC5B6512CC8612D004ED5AC /* Camp Group */,
-				CAC47B232C8CD7B8008AF768 /* ViewDecider.swift */,
-				CAE6D9D32CD0643D000A929C /* GameData.swift */,
+				CAC47B232C8CD7B8008AF768 /* ViewPicker.swift */,
+				CA66CE202CE2F8D7002B3A8D /* UniversalMaster.swift */,
 				CAC47C692C8CDBF9008AF768 /* Coord.swift */,
 				CAC47B2F2C8CD8F1008AF768 /* Tutorial */,
 				CAC47AFD2C8CD76F008AF768 /* Assets.xcassets */,
@@ -249,6 +249,7 @@
 			children = (
 				CAC47B272C8CD8F1008AF768 /* BuildTutorial.swift */,
 				CAC47B282C8CD8F1008AF768 /* CampPhaseTutorial.swift */,
+				CA66CE1E2CDEC263002B3A8D /* TutorialSectionView.swift */,
 				CAC47B292C8CD8F1008AF768 /* AdventuringTutorial.swift */,
 			);
 			path = Tutorials;
@@ -257,8 +258,6 @@
 		CAC47B2D2C8CD8F1008AF768 /* View Elements */ = {
 			isa = PBXGroup;
 			children = (
-				CAC47B2B2C8CD8F1008AF768 /* firstTutorialExit.swift */,
-				CAC47B2C2C8CD8F1008AF768 /* SkipTutorialButton.swift */,
 			);
 			path = "View Elements";
 			sourceTree = "<group>";
@@ -353,6 +352,7 @@
 		CAC5B6512CC8612D004ED5AC /* Camp Group */ = {
 			isa = PBXGroup;
 			children = (
+				CAB5D4DB2CED148600D215B0 /* Testing.swift */,
 				CAE6D9CE2CD05CC0000A929C /* Camp Group */,
 				CAE6D9CF2CD05CE8000A929C /* Workable Group */,
 				CAE6D9CA2CD05B65000A929C /* Person.swift */,
@@ -555,19 +555,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC47B242C8CD7B8008AF768 /* ViewDecider.swift in Sources */,
+				CAC47B242C8CD7B8008AF768 /* ViewPicker.swift in Sources */,
 				CAC5B6552CC86152004ED5AC /* CampTasks.swift in Sources */,
+				CA66CE1F2CDEC263002B3A8D /* TutorialSectionView.swift in Sources */,
 				CAC47B262C8CD825008AF768 /* GameView.swift in Sources */,
 				CAC47B352C8CD8F1008AF768 /* TutorialView.swift in Sources */,
-				CAE6D9D42CD0643D000A929C /* GameData.swift in Sources */,
-				CAC47B342C8CD8F1008AF768 /* SkipTutorialButton.swift in Sources */,
+				CA66CE212CE2F8D7002B3A8D /* UniversalMaster.swift in Sources */,
 				CAC5B6592CC867F7004ED5AC /* WorkableView.swift in Sources */,
 				CAE6D9CB2CD05B65000A929C /* Person.swift in Sources */,
 				CAC47B312C8CD8F1008AF768 /* CampPhaseTutorial.swift in Sources */,
 				CAE6D9D22CD05E6F000A929C /* AdventureView.swift in Sources */,
 				CAC47B322C8CD8F1008AF768 /* AdventuringTutorial.swift in Sources */,
+				CAB5D4DC2CED148600D215B0 /* Testing.swift in Sources */,
 				CAC47B302C8CD8F1008AF768 /* BuildTutorial.swift in Sources */,
-				CAC47B332C8CD8F1008AF768 /* firstTutorialExit.swift in Sources */,
 				CA0BC1DC2CC17688008240E0 /* Camp.swift in Sources */,
 				CAC5B6532CC86141004ED5AC /* CampView.swift in Sources */,
 				CAC47BA72C8CD9B4008AF768 /* AudioManager.swift in Sources */,

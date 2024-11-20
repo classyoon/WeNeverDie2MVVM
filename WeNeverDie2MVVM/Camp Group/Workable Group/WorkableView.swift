@@ -7,19 +7,9 @@
 
 import SwiftUI
 
-struct WorkableView: View {
-    @ObservedObject var vm : WorkableVM
-
-    var body: some View {
-        VStack{
-            ArrayOfPersonButtonsView()
-        }.environmentObject(vm)
-        .background(.brown.opacity(0.7))
-    }
-}
-struct ArrayOfPersonButtonsView : View {
+struct WorkableView : View {
     let columns = [GridItem(.adaptive(minimum: 100))]
-    @EnvironmentObject var vm : WorkableVM
+    @ObservedObject var vm : WorkableVM
    
     var body: some View {
         ScrollView {
@@ -33,6 +23,7 @@ struct ArrayOfPersonButtonsView : View {
                     }.environmentObject(person)
                 }
             }.environmentObject(vm)
+            .background(.brown.opacity(0.7))
         }
     }
 }

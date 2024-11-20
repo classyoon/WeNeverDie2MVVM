@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AdventureView: View {
-    @EnvironmentObject var viewDirector : ViewDecider
+    @EnvironmentObject var viewDirector : ViewPicker
     @ObservedObject var vm : AdventureViewModel
     var body: some View {
         VStack{
@@ -32,28 +32,30 @@ struct AdventureView: View {
 }
 
 #Preview {
-    AdventureView(vm: AdventureViewModel(model: AdventureModel())).environmentObject(ViewDecider())
+    AdventureView(vm: AdventureViewModel(model: AdventureModel())).environmentObject(ViewPicker())
 }
 
 
-class AdventureModel  {
-    var people : [Person]
-    init(people: [Person] = Person.example) {
-        self.people = people
+class AdventureModel : Identifiable{
+    var peopleInAdventure : [Person]
+    var id : UUID
+    init(people: [Person] = Person.example, id : UUID = UUID()) {
+        self.peopleInAdventure = people
+        self.id = id
     }
     func getPeople()->[Person]{
-        return people
+        return peopleInAdventure
     }
     func setPeople(_ people : [Person]){
-        self.people = people
+        self.peopleInAdventure = people
     }
   
     func returnPeople()->[Person]{
-        return people
+        return peopleInAdventure
     }
     func exit()->[Person]{
         var peopleLeaving : [Person] = []
-            for person in people {
+            for person in peopleInAdventure {
                 guard person.vitality == .alive else {
                     continue
                 }
