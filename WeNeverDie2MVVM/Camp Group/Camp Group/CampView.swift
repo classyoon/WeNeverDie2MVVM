@@ -19,8 +19,7 @@ struct CampView: View {
             }
             Button(vm.canLeave ? "Head to adventure" : "Wait next day"){
                 if vm.canLeave {
-                    viewDirector.goAdventuring()
-                    vm.confirm()
+                    viewDirector.enterAdventure()
                 }
             }
             Button("Tutorial"){

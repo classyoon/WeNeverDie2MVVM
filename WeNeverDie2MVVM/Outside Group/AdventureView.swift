@@ -14,7 +14,7 @@ struct AdventureView: View {
         VStack{
             Text("Out")
             Button("Move"){
-                viewDirector.returnFromAdventure()
+                viewDirector.enterCamp()
                 vm.exit()
             }
             ForEach(vm.people){ person in

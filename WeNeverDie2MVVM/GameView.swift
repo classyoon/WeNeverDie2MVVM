@@ -12,13 +12,15 @@ struct GameView: View {
     @EnvironmentObject var universalData : UniversalMaster
     var body: some View {
         VStack {
-            switch viewPicker.chosenScreen {
-            case .campTutorial, .adventuringTutorial :
-                TutorialView()
-            case .adventure:
-                AdventureView(vm: AdventureViewModel(model: universalData.getUpdatedAdventure()))
-            case .camp:
-                CampView(vm: CampViewModel(model: universalData.getUpdatedCamp()))
+            if !viewPicker.inTutorial{
+                switch viewPicker.chosenScreen {
+                case .adventure:
+                    AdventureView(vm: AdventureViewModel(model: universalData.getUpdatedAdventure()))
+                case .camp:
+                    CampView(vm: CampViewModel(model: universalData.getUpdatedCamp()))
+                }
+            } else{
+                TutorialView(vm: TutorialViewModel(model: viewPicker.tutorial, viewPicker: viewPicker))
             }
         }.environmentObject(viewPicker)
     }
@@ -26,6 +28,6 @@ struct GameView: View {
 
 var testGame : UniversalMaster = UniversalMaster()
 #Preview {
-    GameView(viewPicker : testGame.viewPicker ).environmentObject(testGame)
+    GameView(viewPicker : testGame.viewPicker).environmentObject(testGame)
 }
 

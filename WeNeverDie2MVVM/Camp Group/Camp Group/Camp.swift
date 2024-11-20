@@ -18,9 +18,6 @@ struct CampModel {
         }
         return false
     }
-    mutating func confirm(new : [any Workable]){
-        workables = new
-    }
     func getLeavers()->[Person]{
         var peopleLeaving : [Person] = []
             for person in encampedCharacters {
@@ -28,9 +25,7 @@ struct CampModel {
                     continue
                 }
                 peopleLeaving.append(person)
-               
             }
-        
         return peopleLeaving
     }
 }

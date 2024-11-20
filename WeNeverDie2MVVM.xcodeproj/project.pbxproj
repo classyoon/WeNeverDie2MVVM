@@ -210,6 +210,7 @@
 				CAE6D9D02CD05E55000A929C /* Outside Group */,
 				CAC5B6512CC8612D004ED5AC /* Camp Group */,
 				CAC47B232C8CD7B8008AF768 /* ViewPicker.swift */,
+				CAC47B2E2C8CD8F1008AF768 /* TutorialView.swift */,
 				CA66CE202CE2F8D7002B3A8D /* UniversalMaster.swift */,
 				CAC47C692C8CDBF9008AF768 /* Coord.swift */,
 				CAC47B2F2C8CD8F1008AF768 /* Tutorial */,
@@ -267,7 +268,6 @@
 			children = (
 				CAC47B2A2C8CD8F1008AF768 /* Tutorials */,
 				CAC47B2D2C8CD8F1008AF768 /* View Elements */,
-				CAC47B2E2C8CD8F1008AF768 /* TutorialView.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";

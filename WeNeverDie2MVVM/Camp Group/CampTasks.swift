@@ -13,20 +13,20 @@ protocol Completable : Identifiable &  Workable{
     var madeProgress : Int { get set}
 }
 extension Completable {
-    mutating func moveProgress(){
-        madeProgress += 1
+    mutating func progress(workers : [Person]){
+        for worker in workers{
+            neededProgress += 1
+        }
     }
 }
 struct GoingScavenging : Workable {
     var name: String = "Gone Scavenging"
     var id: UUID = UUID()
-    var people: [Person] = []
     var typeOfActivity: QueuedDailyActivity = .goingOut
 }
 struct BuildingWorkshop : Completable {
     var name: String = "Building Workshop"
     var id: UUID = UUID()
-    var people: [Person] = []
     var neededProgress: Int = 5
     var madeProgress: Int = 0
     var typeOfActivity: QueuedDailyActivity = .workingInCamp
@@ -34,8 +34,6 @@ struct BuildingWorkshop : Completable {
 struct WorkingAtWorkshop : Workable {
     var name: String = "Working at workshop"
     var id: UUID = UUID()
-    var people: [Person] = []
     var typeOfActivity: QueuedDailyActivity = .nothing
-    
 }
 

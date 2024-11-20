@@ -8,97 +8,133 @@
 import Foundation
 
 
-enum IntendedView {
-    case adventuringTutorial, campTutorial, adventure, camp
+enum IntendedView : Codable {
+    case adventure, camp
 }
 
-struct ViewPickerData : Codable, Identifiable {
-    var id : UUID
-    var isAdventuring : Bool
+class ViewPicker : ObservableObject {
+    var inTutorial : Bool
+    var tutorial : TutorialManager
+    @Published var chosenScreen : IntendedView = .camp
+    init() {
+        self.tutorial = TutorialManager(assigned: .camp)
+        self.inTutorial = !tutorial.checkViewStatus()
+    }
+    func enterTutorial(){
+        inTutorial = true
+    }
+    func exitTutorial(){
+        inTutorial = false
+    }
+    func enterAdventure(){
+        chosenScreen = .adventure
+        tutorial.assignedScreen = chosenScreen
+        inTutorial = !tutorial.checkViewStatus()
+    }
+    func enterCamp(){
+        chosenScreen = .camp
+        tutorial.assignedScreen = chosenScreen
+        inTutorial = !tutorial.checkViewStatus()
+    }
+}
+
+enum PossibleView {
+    case camp, adventure
+}
+class TutorialManager : ObservableObject {
+    var saveKey : String = "Test"
+    var tutorialsSequenced : Bool = true
+    var willSaveAndLoad : Bool = false
     var seenCampTutorial : Bool
     var seenAdventureTutorial : Bool
+    var assignedScreen : IntendedView
+    func checkViewStatus()->Bool{
+        switch assignedScreen {
+        case .camp:
+            seenCampTutorial
+        case .adventure:
+            seenAdventureTutorial
+        }
+    }
+    func markViewed(){
+        switch assignedScreen {
+        case .camp:
+            seenCampTutorial = true
+        case .adventure:
+            seenAdventureTutorial = true
+        }
+    }
+    init(seenCampTutorial: Bool = false, seenAdventureTutorial: Bool = false, assigned:  IntendedView = .camp) {
+        guard willSaveAndLoad == false else {
+            let saveddata = load(key: saveKey) ?? TutorialData()
+            self.seenAdventureTutorial = saveddata.seenAdventureTutorial
+            self.seenCampTutorial = saveddata.seenCampTutorial
+            self.assignedScreen = assigned
+            return
+        }
+        guard tutorialsSequenced == true else {
+            self.seenCampTutorial = true
+            self.seenAdventureTutorial = true
+            self.assignedScreen = assigned
+            return
+        }
+        self.seenCampTutorial = seenCampTutorial
+        self.seenAdventureTutorial = seenAdventureTutorial
+        self.assignedScreen = assigned
+    }
+}
+class TutorialViewModel {
+    var model : TutorialManager
+    var viewPicker : ViewPicker
+    @Published var largeText = false
+    var title : String {
+        switch model.assignedScreen {
+        case .adventure:
+            "Outside Tutorial"
+        case .camp:
+            "Camp Tutorial"
+        }
+    }
+    var exitButton : String{
+        switch model.assignedScreen {
+        case .adventure:
+            "Begin Game"
+        case .camp:
+            "Begin Exploring"
+        }
+    }
+    var showSkips : Bool {
+        model.checkViewStatus()
+    }
     
-    init(storing presentUser : ViewPicker? = nil, isAdventuring: Bool = false, seenCampTutorial: Bool = false, seenAdventureTutorial: Bool = false){
+    func update(){
+        model.markViewed()
+        viewPicker.exitTutorial()
+        
+    }
+    func toggleLargeText(){
+        largeText ? AudioManager.shared.playSFX(.open) : AudioManager.shared.playSFX(.close)
+        largeText.toggle()
+    }
+    init(model: TutorialManager, largeText: Bool = false, viewPicker: ViewPicker) {
+        self.model = model
+        self.largeText = largeText
+        self.viewPicker = viewPicker
+    }
+}
+struct TutorialData : Codable, Identifiable {
+    var id : UUID
+    var seenCampTutorial : Bool
+    var seenAdventureTutorial : Bool
+    init(storing presentUser : TutorialManager? = nil, seenCampTutorial: Bool = false, seenAdventureTutorial: Bool = false){
         self.id = UUID()
         guard let accessedUser = presentUser else {
-            self.isAdventuring = isAdventuring
             self.seenCampTutorial = seenCampTutorial
             self.seenAdventureTutorial = seenAdventureTutorial
             return
         }
-        self.isAdventuring = accessedUser.isAdventuring
         self.seenCampTutorial = accessedUser.seenCampTutorial
         self.seenAdventureTutorial = accessedUser.seenAdventureTutorial
-    }
-}
-class ViewPicker : ObservableObject {
-    var isAdventuring : Bool
-    var saveKey : String = "Test"
-    var seenCampTutorial : Bool
-    var seenAdventureTutorial : Bool
-    
-    var requireTutorial : Bool = true
-    var willSaveAndLoad : Bool = false
-    @Published var chosenScreen : IntendedView = .campTutorial
-    init(isInMission: Bool = false, seenCampTutorial: Bool = false, seenAdventureTutorial: Bool = false) {
-        guard requireTutorial == true else {
-            self.isAdventuring = true
-            self.seenAdventureTutorial = true
-            self.seenCampTutorial = true
-            self.chosenScreen = .camp
-            return
-        }
-        guard willSaveAndLoad == false else {
-            let saveddata = load(key: saveKey) ?? ViewPickerData()
-            self.isAdventuring = saveddata.isAdventuring
-            self.seenCampTutorial = saveddata.seenCampTutorial
-            self.seenAdventureTutorial = saveddata.seenAdventureTutorial
-            findPriorityView()
-            return
-        }
-        self.isAdventuring = isInMission
-        self.seenCampTutorial = seenCampTutorial
-        self.seenAdventureTutorial = seenAdventureTutorial
-    }
-    func enterTutorial(){
-        chosenScreen = (isAdventuring ? .adventuringTutorial : .campTutorial)
-    }
-
-    private func findPriorityView() {
-        chosenScreen = isAdventuring ? (seenAdventureTutorial ? .adventure : .adventuringTutorial) : (seenCampTutorial ? .camp : .campTutorial)
-        guard willSaveAndLoad == false else {return save(items: ViewPickerData(storing:self), key: saveKey)}
-    }
-
-    
-    func showAdventureTutorial()->Bool{
-        chosenScreen == .adventuringTutorial
-    }
-    
-    func shouldShowSkip()->Bool {
-        switch chosenScreen {
-        case .adventuringTutorial:
-            return !seenCampTutorial
-        case .campTutorial:
-            return !seenAdventureTutorial
-        default :
-            return false
-        }
-    }
-    func skipTutorial(){
-        switch chosenScreen {
-        case .adventuringTutorial:
-            seenAdventureTutorial = true
-        case .campTutorial:
-            seenCampTutorial = true
-        default : break
-        }
-        findPriorityView()
-    }
-    func goAdventuring(){
-        isAdventuring = true; findPriorityView()
-    }
-    func returnFromAdventure(){
-        isAdventuring = false; findPriorityView()
     }
 }
 func save<T: Identifiable & Codable>(items: T, key: String) {

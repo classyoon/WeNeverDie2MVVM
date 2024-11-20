@@ -31,13 +31,5 @@ class CampViewModel : ObservableObject {
         self.canLeave = model.canLeave()
         self.inspectedPerson = inspectedPerson
     }
-    func confirm(){
-        var newList : [any Workable] = []
-        for workableVM in workablesVM {
-            workableVM.confirm()
-            newList.append(workableVM.model)
-        }
-        model.confirm(new: newList)
-    }
    
 }

@@ -13,9 +13,6 @@ class WorkableVM : ObservableObject, Equatable, Identifiable{
     static func == (lhs: WorkableVM, rhs: WorkableVM) -> Bool {
         lhs.model.id == rhs.model.id
     }
-    func confirm(){
-        model.assign(people)
-    }
     func getName()->String{
         model.name
     }
@@ -40,11 +37,5 @@ class WorkableVM : ObservableObject, Equatable, Identifiable{
 protocol Workable : Identifiable {
     var name : String {get set}
     var id : UUID {get}
-    var people : [Person] {get set}
     var typeOfActivity : QueuedDailyActivity {get}
-}
-extension Workable {
-    mutating func assign(_ people : [Person]){
-        self.people = people
-    }
 }
