@@ -38,7 +38,7 @@ class ViewPicker : ObservableObject {
     var seenAdventureTutorial : Bool
     
     var requireTutorial : Bool = true
-    var willSaveAndLoad : Bool = false
+    var willSaveAndLoad : Bool = true
     @Published var chosenScreen : IntendedView = .campTutorial
     init(isInMission: Bool = false, seenCampTutorial: Bool = false, seenAdventureTutorial: Bool = false) {
         guard requireTutorial == true else {
@@ -61,11 +61,19 @@ class ViewPicker : ObservableObject {
         self.seenAdventureTutorial = seenAdventureTutorial
     }
     func enterTutorial(){
-        chosenScreen = (isAdventuring ? .adventuringTutorial : .campTutorial)
+        if isAdventuring {
+            chosenScreen = .adventuringTutorial
+        }else{
+            chosenScreen = .campTutorial
+        }
     }
 
     private func findPriorityView() {
-        chosenScreen = isAdventuring ? (seenAdventureTutorial ? .adventure : .adventuringTutorial) : (seenCampTutorial ? .camp : .campTutorial)
+        if isAdventuring {
+            chosenScreen = seenAdventureTutorial ? .adventure : .adventuringTutorial
+        } else {
+            chosenScreen = seenCampTutorial ? .camp : .campTutorial
+        }
         guard willSaveAndLoad == false else {return save(items: ViewPickerData(storing:self), key: saveKey)}
     }
 
@@ -75,30 +83,23 @@ class ViewPicker : ObservableObject {
     }
     
     func shouldShowSkip()->Bool {
-        switch chosenScreen {
-        case .adventuringTutorial:
-            return !seenCampTutorial
-        case .campTutorial:
-            return !seenAdventureTutorial
-        default :
-            return false
-        }
+        chosenScreen == .campTutorial && !seenCampTutorial || chosenScreen == .adventuringTutorial && !seenAdventureTutorial
     }
     func skipTutorial(){
-        switch chosenScreen {
-        case .adventuringTutorial:
-            seenAdventureTutorial = true
-        case .campTutorial:
+        if  chosenScreen == .campTutorial {
             seenCampTutorial = true
-        default : break
+        }else {
+            seenAdventureTutorial = true
         }
         findPriorityView()
     }
     func goAdventuring(){
-        isAdventuring = true; findPriorityView()
+        isAdventuring = true
+        findPriorityView()
     }
     func returnFromAdventure(){
-        isAdventuring = false; findPriorityView()
+        isAdventuring = false
+        findPriorityView()
     }
 }
 func save<T: Identifiable & Codable>(items: T, key: String) {
