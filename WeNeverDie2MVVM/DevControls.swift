@@ -6,3 +6,5 @@
 //
 
 import Foundation
+var tutorialChecking : Bool = false
+var willSaveAndLoad : Bool = false

@@ -48,7 +48,7 @@ class TestingApparatus {
             #expect(decider.inTutorial == true)
             vm.update()
             #expect(decider.inTutorial == false)
-        }else if decider.tutorial.tutorialsSequenced == false{
+        }else if decider.tutorial.tutorialChecking == false{
             print("Tutorial sequence off")
         }
         

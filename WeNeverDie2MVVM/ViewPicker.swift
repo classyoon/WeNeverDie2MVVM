@@ -38,13 +38,8 @@ class ViewPicker : ObservableObject {
     }
 }
 
-enum PossibleView {
-    case camp, adventure
-}
 class TutorialManager : ObservableObject {
     var saveKey : String = "Test"
-    var tutorialsSequenced : Bool = true
-    var willSaveAndLoad : Bool = false
     var seenCampTutorial : Bool
     var seenAdventureTutorial : Bool
     var assignedScreen : IntendedView
@@ -63,6 +58,7 @@ class TutorialManager : ObservableObject {
         case .adventure:
             seenAdventureTutorial = true
         }
+        save(items: TutorialData(storing: self), key: saveKey)
     }
     init(seenCampTutorial: Bool = false, seenAdventureTutorial: Bool = false, assigned:  IntendedView = .camp) {
         guard willSaveAndLoad == false else {
@@ -72,7 +68,7 @@ class TutorialManager : ObservableObject {
             self.assignedScreen = assigned
             return
         }
-        guard tutorialsSequenced == true else {
+        guard tutorialChecking == true else {
             self.seenCampTutorial = true
             self.seenAdventureTutorial = true
             self.assignedScreen = assigned

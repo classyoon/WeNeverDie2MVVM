@@ -34,8 +34,4 @@ class WorkableVM : ObservableObject, Equatable, Identifiable{
         self.model = model
     }
 }
-protocol Workable : Identifiable {
-    var name : String {get set}
-    var id : UUID {get}
-    var typeOfActivity : QueuedDailyActivity {get}
-}
+
