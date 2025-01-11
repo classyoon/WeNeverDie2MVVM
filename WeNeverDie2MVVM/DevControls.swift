@@ -6,5 +6,5 @@
 //
 
 import Foundation
-var tutorialChecking : Bool = false
+var tutorialChecking : Bool = true
 var willSaveAndLoad : Bool = false

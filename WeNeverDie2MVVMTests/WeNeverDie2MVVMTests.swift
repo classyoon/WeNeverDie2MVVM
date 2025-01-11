@@ -33,10 +33,10 @@ class TestingApparatus {
         let game = UniversalMaster()
         let decider = game.viewPicker
         let tutorial = decider.tutorial
-        if tutorial.willSaveAndLoad == false {
+        if willSaveAndLoad == false {
             #expect(decider.chosenScreen == .camp, "Player starts in Camp")
             #expect(tutorial.assignedScreen == .camp, "Player starts in Camp")
-            #expect(tutorial.checkViewStatus() == false)
+            #expect(tutorial.showTutorial() == false)
             #expect(decider.inTutorial)
             var vm  = TutorialViewModel(model: tutorial, viewPicker: decider)
             vm.update()
@@ -48,7 +48,7 @@ class TestingApparatus {
             #expect(decider.inTutorial == true)
             vm.update()
             #expect(decider.inTutorial == false)
-        }else if decider.tutorial.tutorialChecking == false{
+        }else if tutorialChecking == false{
             print("Tutorial sequence off")
         }
         
