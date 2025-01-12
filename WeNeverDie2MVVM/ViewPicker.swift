@@ -13,7 +13,7 @@ enum IntendedView : Codable {
 }
 
 class ViewPicker : ObservableObject {
-    var inTutorial : Bool
+    @Published var inTutorial : Bool
     var tutorial : TutorialManager
     @Published var chosenScreen : IntendedView = .camp
     init() {
@@ -95,9 +95,9 @@ class TutorialViewModel {
     var exitButton : String{
         switch model.assignedScreen {
         case .adventure:
-            "Begin Game"
-        case .camp:
             "Begin Exploring"
+        case .camp:
+            "Begin Game"
         }
     }
     var showSkips : Bool {

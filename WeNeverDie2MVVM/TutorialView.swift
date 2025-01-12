@@ -41,7 +41,7 @@ struct TutorialView: View {
     }
     @ViewBuilder
     var skipOrExitButton: some View {
-        if vm.showSkips {
+        if !vm.showSkips {
             FirstExitButton(vm: vm)
         } else {
             ExitTutorialButton(vm: vm)
