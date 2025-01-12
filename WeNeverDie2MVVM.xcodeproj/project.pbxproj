@@ -10,6 +10,7 @@
 		CA0BC1DC2CC17688008240E0 /* Camp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0BC1DB2CC17688008240E0 /* Camp.swift */; };
 		CA66CE1F2CDEC263002B3A8D /* TutorialSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA66CE1E2CDEC263002B3A8D /* TutorialSectionView.swift */; };
 		CA66CE212CE2F8D7002B3A8D /* UniversalMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA66CE202CE2F8D7002B3A8D /* UniversalMaster.swift */; };
+		CAA45B4F2CEEA87500A65857 /* DevControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA45B4E2CEEA87500A65857 /* DevControls.swift */; };
 		CAB5D4DC2CED148600D215B0 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5D4DB2CED148600D215B0 /* Testing.swift */; };
 		CAC47AF82C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC47AF72C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift */; };
 		CAC47AFE2C8CD76F008AF768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC47AFD2C8CD76F008AF768 /* Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		CA0BC1DB2CC17688008240E0 /* Camp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camp.swift; sourceTree = "<group>"; };
 		CA66CE1E2CDEC263002B3A8D /* TutorialSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSectionView.swift; sourceTree = "<group>"; };
 		CA66CE202CE2F8D7002B3A8D /* UniversalMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalMaster.swift; sourceTree = "<group>"; };
+		CAA45B4E2CEEA87500A65857 /* DevControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevControls.swift; sourceTree = "<group>"; };
 		CAB5D4DB2CED148600D215B0 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		CAC47AF42C8CD76E008AF768 /* WeNeverDie2MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeNeverDie2MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC47AF72C8CD76E008AF768 /* WeNeverDie2MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeNeverDie2MVVMApp.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				CAE6D9D02CD05E55000A929C /* Outside Group */,
 				CAC5B6512CC8612D004ED5AC /* Camp Group */,
 				CAC47B232C8CD7B8008AF768 /* ViewPicker.swift */,
+				CAA45B4E2CEEA87500A65857 /* DevControls.swift */,
 				CAC47B2E2C8CD8F1008AF768 /* TutorialView.swift */,
 				CA66CE202CE2F8D7002B3A8D /* UniversalMaster.swift */,
 				CAC47C692C8CDBF9008AF768 /* Coord.swift */,
@@ -549,6 +552,7 @@
 			files = (
 				CAC47B242C8CD7B8008AF768 /* ViewPicker.swift in Sources */,
 				CAC5B6552CC86152004ED5AC /* CampTasks.swift in Sources */,
+				CAA45B4F2CEEA87500A65857 /* DevControls.swift in Sources */,
 				CA66CE1F2CDEC263002B3A8D /* TutorialSectionView.swift in Sources */,
 				CAC47B262C8CD825008AF768 /* GameView.swift in Sources */,
 				CAC47B352C8CD8F1008AF768 /* TutorialView.swift in Sources */,

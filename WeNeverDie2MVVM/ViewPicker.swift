@@ -18,7 +18,7 @@ class ViewPicker : ObservableObject {
     @Published var chosenScreen : IntendedView = .camp
     init() {
         self.tutorial = TutorialManager(assigned: .camp)
-        self.inTutorial = !tutorial.checkViewStatus()
+        self.inTutorial = !tutorial.showTutorial()
     }
     func enterTutorial(){
         inTutorial = true
@@ -29,26 +29,24 @@ class ViewPicker : ObservableObject {
     func enterAdventure(){
         chosenScreen = .adventure
         tutorial.assignedScreen = chosenScreen
-        inTutorial = !tutorial.checkViewStatus()
+        inTutorial = !tutorial.showTutorial()
     }
     func enterCamp(){
         chosenScreen = .camp
         tutorial.assignedScreen = chosenScreen
-        inTutorial = !tutorial.checkViewStatus()
+        inTutorial = !tutorial.showTutorial()
     }
 }
 
-enum PossibleView {
-    case camp, adventure
-}
 class TutorialManager : ObservableObject {
     var saveKey : String = "Test"
     var tutorialsSequenced : Bool = true
     var willSaveAndLoad : Bool = true
     var seenCampTutorial : Bool
     var seenAdventureTutorial : Bool
+    
     var assignedScreen : IntendedView
-    func checkViewStatus()->Bool{
+    func showTutorial()->Bool{
         switch assignedScreen {
         case .camp:
             seenCampTutorial
@@ -63,6 +61,7 @@ class TutorialManager : ObservableObject {
         case .adventure:
             seenAdventureTutorial = true
         }
+        save(items: TutorialData(storing: self), key: saveKey)
     }
     init(seenCampTutorial: Bool = false, seenAdventureTutorial: Bool = false, assigned:  IntendedView = .camp) {
         guard willSaveAndLoad == false else {
@@ -72,7 +71,7 @@ class TutorialManager : ObservableObject {
             self.assignedScreen = assigned
             return
         }
-        guard tutorialsSequenced == true else {
+        guard tutorialChecking == true else {
             self.seenCampTutorial = true
             self.seenAdventureTutorial = true
             self.assignedScreen = assigned
@@ -104,7 +103,7 @@ class TutorialViewModel {
         }
     }
     var showSkips : Bool {
-        model.checkViewStatus()
+        model.showTutorial()
     }
     
     func update(){
