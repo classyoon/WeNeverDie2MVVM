@@ -13,7 +13,7 @@ enum IntendedView : Codable {
 }
 
 class ViewPicker : ObservableObject {
-    var inTutorial : Bool
+    @Published var inTutorial : Bool
     var tutorial : TutorialManager
     @Published var chosenScreen : IntendedView = .camp
     init() {
@@ -44,7 +44,7 @@ enum PossibleView {
 class TutorialManager : ObservableObject {
     var saveKey : String = "Test"
     var tutorialsSequenced : Bool = true
-    var willSaveAndLoad : Bool = false
+    var willSaveAndLoad : Bool = true
     var seenCampTutorial : Bool
     var seenAdventureTutorial : Bool
     var assignedScreen : IntendedView

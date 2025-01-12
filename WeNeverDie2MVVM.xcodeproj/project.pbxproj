@@ -256,18 +256,10 @@
 			path = Tutorials;
 			sourceTree = "<group>";
 		};
-		CAC47B2D2C8CD8F1008AF768 /* View Elements */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Elements";
-			sourceTree = "<group>";
-		};
 		CAC47B2F2C8CD8F1008AF768 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
 				CAC47B2A2C8CD8F1008AF768 /* Tutorials */,
-				CAC47B2D2C8CD8F1008AF768 /* View Elements */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
